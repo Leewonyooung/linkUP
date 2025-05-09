@@ -1,0 +1,84 @@
+/* 공통 레이아웃 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+/* 전체 레이아웃 */
+.layout {
+  display: flex;
+  max-width: 1200px; /* 약간 줄임 */
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 180px;
+  min-width: 180px;
+  background-color: #940683;
+  color: white;
+  padding: 1rem 1rem; /* 위 여백 줄임 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+  
+  .main {
+    flex: 1;
+    padding: 30px 40px;
+    background: white;
+  }
+  
+  h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  /* 공통 버튼 스타일 */
+  button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button.edit {
+    background-color: #e0e7ff;
+    color: #1e40af;
+  }
+  
+  button.delete {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  button.submit {
+    background: #3b82f6;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* 공통 카드 스타일 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .main {
+      padding: 20px;
+    }
+  }

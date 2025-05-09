@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.qna">
+
+    <!-- 사용자별 QnA 개수 -->
+    <select id="selectQnACntByUserId" parameterType="String" resultType="Integer">
+        SELECT COUNT(*) FROM qna WHERE user_id = #{userId}
+    </select>
+
+    <!-- 사용자별 QnA 목록 (페이지 처리 포함) -->
+    <select id="selectQnAListByPage" parameterType="Map" resultType="qna">
+        SELECT * FROM qna
+        WHERE user_id = #{userId}
+        ORDER BY qna_id DESC
+        LIMIT #{row}, 3
+    </select>
+
+    <!-- 전체 QnA 목록 (페이지 처리 포함) -->
+    <select id="selectQnAList" parameterType="Integer" resultType="qna">
+        SELECT * FROM qna
+        WHERE user_id = #{userId}
+        ORDER BY answer_date DESC
+        LIMIT #{row}, 3
+    </select>
+
+    <!-- 전체 QnA 개수 -->
+    <select id="selectQnACount" resultType="Integer">
+        SELECT COUNT(*) FROM qna
+        WHERE user_id = #{userId}
+    </select>
+
+    <!--  필터를 적용한 QnA 개수 -->
+    <select id="selectQnACountWithFilter" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM qna
+        <where>
+            user_id = #{userId}
+            <if test="status != null and status != ''">
+                <choose>
+                    <when test="status == 'waiting'">
+                        AND answer_content IS NULL
+                    </when>
+                    <when test="status == 'complete'">
+                        AND answer_content IS NOT NULL
+                    </when>
+                </choose>
+            </if>
+
+            <if test="keyword != null and keyword != ''">
+                AND question_title LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+    </select>
+
+    <!-- 필터 + 정렬 + 페이징된 QnA 목록 -->
+    <select id="selectQnAListWithFilter" parameterType="map" resultType="qna">
+        SELECT * FROM qna
+        <where>
+            user_id = #{userId}
+            <if test="status != null and status != ''">
+                <choose>
+                    <when test="status == 'waiting'">
+                        AND answer_content IS NULL
+                    </when>
+                    <when test="status == 'complete'">
+                        AND answer_content IS NOT NULL
+                    </when>
+                </choose>
+            </if>
+
+            <if test="keyword != null and keyword != ''">
+                AND question_title LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY question_date
+        <choose>
+            <when test="sort != null and sort == 'asc'">DESC</when>
+            <otherwise>ASC</otherwise>
+        </choose>
+        LIMIT #{row}, 3
+    </select>
+
+    <!-- QnA 등록 -->
+    <insert id="insertQna" parameterType="qna">
+        INSERT INTO qna (
+            qna_id, user_id, question_title, question_content, question_date, answer_content, answer_date
+        )
+        VALUES (
+                   #{qnaId}, #{userId}, #{questionTitle}, #{questionContent}, #{questionDate}, #{answerContent}, #{answerDate}
+               )
+    </insert>
+
+    <select id="selectPagedQna" parameterType="map" resultType="qna">
+        SELECT
+        qna_id AS qnaId,
+        user_id AS userId,
+        question_title AS questionTitle,
+        question_content AS questionContent,
+        question_date AS questionDate,
+        answer_content AS answerContent,
+        answer_date AS answerDate
+        FROM qna
+        <where>
+            <if test="keyword != null and keyword != ''">
+                (question_title LIKE CONCAT('%', #{keyword}, '%') OR user_id LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="category != null and category != ''">
+                AND (question_title LIKE CONCAT('%', #{category}, '%'))
+            </if>
+            <if test="answerStatus == '답변완료'">
+                AND (answer_content IS NOT NULL)
+            </if>
+            <if test="answerStatus == '미답변'">
+                AND (answer_content IS NULL)
+            </if>
+            <if test="startDate != null and startDate != ''">
+                AND question_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null and endDate != ''">
+                AND question_date &lt;= #{endDate}
+            </if>
+        </where>
+        ORDER BY qna_id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countQna" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM qna
+        <where>
+            <if test="keyword != null and keyword != ''">
+                (question_title LIKE CONCAT('%', #{keyword}, '%') OR user_id LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="category != null and category != ''">
+                AND (question_title LIKE CONCAT('%', #{category}, '%'))
+            </if>
+            <if test="answerStatus == '답변완료'">
+                AND (answer_content IS NOT NULL)
+            </if>
+            <if test="answerStatus == '미답변'">
+                AND (answer_content IS NULL)
+            </if>
+            <if test="startDate != null and startDate != ''">
+                AND question_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null and endDate != ''">
+                AND question_date &lt;= #{endDate}
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteQna" parameterType="int">
+        DELETE FROM qna WHERE qna_id = #{qnaId} AND user_id = #{userId}
+    </delete>
+
+    <select id="selectQnaById" parameterType="int" resultType="dto.QnA">
+        SELECT * FROM qna WHERE qna_id = #{qnaId}
+    </select>
+
+    <update id="updateAnswer" parameterType="map">
+        UPDATE qna
+        SET answer_content = #{answerContent},
+            answer_date = NOW()
+        WHERE qna_id = #{qnaId} AND user_id = #{userId}
+    </update>
+
+    <select id="countAnsweredQna" resultType="int">
+        SELECT COUNT(*)
+        FROM qna
+        WHERE answer_content IS NOT NULL
+          AND answer_content != '(답변대기 중)'
+    </select>
+
+    <select id="selectQnAListByPageFree" parameterType="Map" resultType="qna">
+        select *
+        from qna
+        where user_id = #{userId}
+        order by qna_id desc
+        limit #{row}, 10
+    </select>
+
+</mapper>

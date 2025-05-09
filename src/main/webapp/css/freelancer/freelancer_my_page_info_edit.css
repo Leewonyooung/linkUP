@@ -1,0 +1,200 @@
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8b2c8c;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.content-header{
+    margin-top: 20px;
+}
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav ul li {
+    margin: 0 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+.section{
+    min-height: fit-content;
+}
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.container {
+    height: 1040px;
+}
+h2 {
+    margin-top: 0;
+}
+.content-header-text {
+    width: 100%;
+    text-align: center;
+}
+.section {
+     min-height: fit-content;
+    margin-left: 51px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;   
+     justify-content: center;
+     padding-top: 2rem;
+ }
+.form-section h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    width: 85%;
+    flex-wrap: wrap;
+}
+.section h3{
+    width: 85%;
+}
+input {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+.names{
+    display : inline-flex;
+    flex-direction : row;
+    width: 1000px;
+    align-items: flex-start;
+}
+.profile-upload{
+    width: 30%;
+    justify-content: center;
+    align-content: center;
+}
+.profile-box {
+    margin: 1px;
+    padding: 1px;
+    width: fit-content;
+    min-width: 150px;
+    min-height: 150px;
+    border: 2px dashed #aaa;
+    display: inline-block;
+}
+.upload-placeholder {
+    display: inline-block;          /* block or inline-block 추천 */
+    min-width: 150px;
+    min-height: 150px;
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+.profile-info{
+    width: 50%;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-left: 34px;
+    align-items:start;
+}
+.profile-info > div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.profile-info > div > input{
+    flex: 1;
+    max-width: 200px;
+}
+.profile-info > div > label{
+    font-size: 16px;
+    width: 15%;
+    min-width: 60px;
+}
+#nicknameCheckResult, #passwordCheckResult{
+    width: 190px;
+    padding-left: 15px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.profile-info > div> input{
+    width: 75%;
+}
+.preview-img {
+    width : 200px;
+    object-fit: cover;
+}
+.search-btn {
+    padding: 0.7rem 1rem;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-row.center {
+    justify-content: center;
+}
+#CheckBank {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#CheckBank label {
+    width: 60px;
+}
+
+#CheckBank input[type="text"] {
+    max-width: 380px;
+    flex: 1;
+}
+input:read-only {
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+.submit-btn {
+    margin-top: 50px;
+    background-color: #8b2c8c;
+    color: white;
+    padding: 0.7rem 3rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #6e2070;
+}
+.star{
+    color: red;
+    font-size: 1.2rem;
+    margin-left: 4px;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.pay">
+<!--    <insert id="insertPay" parameterType="pay">-->
+<!--        insert pay (project_pay_id,project_id,lv_id,project_fee)-->
+<!--        values (#{project_fee_id}, #{project_id},#{lv_id},#{project_fee})-->
+<!--    </insert>-->
+
+    <insert id="insertPay" parameterType="dto.Pay" useGeneratedKeys="true" keyProperty="projectPayId">
+        INSERT INTO pay (
+            project_id, lv_id, sub_category_id, work, people, project_fee
+        ) VALUES (
+                     #{projectId}, #{lvId}, #{subCategoryId}, #{work}, #{people}, #{projectFee}
+                 )
+    </insert>
+
+    <select id="selectPayById" parameterType="int" resultType="pay">
+        select *
+        from pay
+        where project_pay_id = #{projectPayId}
+    </select>
+
+    <select id="selectPayByProjectIdandName" parameterType="map" resultType="pay">
+        select *
+        from pay
+        where project_id = #{projectId} and category_name = #{position}
+    </select>
+
+    <select id="selectPayByProjectId" parameterType="int" resultType="pay">
+        select *
+        from pay
+        where project_id = #{projectId}
+    </select>
+
+
+    <select id="getPaysByProjectId" parameterType="int" resultType="dto.Pay">
+        SELECT * FROM pay WHERE project_id = #{projectId}
+    </select>
+
+    <delete id="deletePaysByProjectId" parameterType="int">
+        DELETE FROM pay WHERE project_id = #{projectId}
+    </delete>
+
+
+    <select id="selectPayByProjectPayId" parameterType="Integer" resultType="dto.Pay">
+        select * from pay where project_pay_id = #{projectPayId}
+    </select>
+</mapper>

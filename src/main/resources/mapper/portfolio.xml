@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.portfolio">
+    <select id="selectPortfolioCnt" parameterType="String" resultType="Integer">
+        SELECT count(*) FROM portfolio where freelancer_id = #{user_id} and is_deleted = false
+    </select>
+    <!--포트폴리오 목록 조회-->
+    <select id="selectPortfolioListByPage" parameterType="Map" resultType="portfolio">
+        SELECT portfolio_id, title, thumbnail, introduce, skill_description, created_date
+        FROM portfolio
+        where freelancer_id = #{user_id}
+          and is_deleted is false order by portfolio_id desc limit #{row}, 10
+    </select>
+
+    <select id="projectInfoForPortfolio" resultType="Map" parameterType="String">
+        SELECT c.project_id, p.project_name
+        FROM contract c
+                 JOIN project p ON c.project_id = p.project_id
+        WHERE c.freelancer_id = #{freelancerId}
+        ORDER BY c.id DESC
+    </select>
+    <select id="isPortfolioOwner" resultType="Integer" parameterType="Map">
+        SELECT count(*)
+        from portfolio
+        where portfolio_id = #{portfolioId} and freelancer_id = #{freelancerId}
+    </select>
+    <select id="selectAllPortfolioInfoForProfile" resultType="Map" parameterType="String">
+        SELECT portfolio_id, title
+        FROM portfolio
+        WHERE freelancer_id = #{freelancerId} and is_deleted = false
+        ORDER BY portfolio_id DESC
+    </select>
+    <select id="selectedPortfolioInfoForProfile" resultType="portfolio" parameterType="String">
+        SELECT portfolio_id, title
+        FROM portfolio
+        WHERE freelancer_id = #{freelancerId} and is_deleted = false
+        ORDER BY portfolio_id DESC
+    </select>
+
+    <!--포츠폴리오 상세 조회-->
+    <select id="selectPortfolioById" parameterType="Integer" resultType="portfolio">
+        SELECT
+            p.*,
+            pr.project_name
+        FROM
+            portfolio p
+                LEFT JOIN
+            project pr ON p.project_id = pr.project_id
+        WHERE
+            p.portfolio_id = #{portfolio_id}
+    </select>
+    <update id="updatePortfolio" parameterType="portfolio">
+        UPDATE portfolio
+        SET title = #{title},
+            thumbnail = #{thumbnail},
+            introduce = #{introduce},
+            port_proj_start = #{portProjStart},
+            port_proj_end = #{portProjEnd},
+            skill_description = #{skillDescription},
+            attachment = #{attachment},
+            external_url = #{externalUrl},
+            project_id = #{projectId}
+        WHERE portfolio_id = #{portfolioId}
+    </update>
+    <insert id="insertPortfolioComplete" parameterType="portfolio" useGeneratedKeys="true" keyProperty="portfolioId">
+        INSERT INTO portfolio (freelancer_id, title, thumbnail, introduce, port_proj_start, port_proj_end, team_role, skill_description, project_id, attachment, external_url)
+        VALUES (#{freelancerId}, #{title}, #{thumbnail}, #{introduce}, #{portProjStart}, #{portProjEnd}, #{teamRole}, #{skillDescription}, #{projectId}, #{attachment}, #{externalUrl});
+    </insert>
+<!--    <insert id="insertPortfolioIncomplete" parameterType="portfolio" useGeneratedKeys="true" keyProperty="portfolioId">/*미완인 포폴*/
+    INSERT INTO portfolio (freelancer_id, title, thumbnail, introduce, skill_description, project_id, attachment, external_url, is_temp_saved)
+    VALUES (#{freelancerId}, #{title}, #{thumbnail}, #{introduce}, #{skillDescription}, #{projectId}, #{attachment}, #{externalUrl}, true)
+    </insert>-->
+    <update id="deletePortfolioById" parameterType="Integer">
+        update portfolio set is_deleted=true
+        WHERE portfolio_id = #{portfolioId}
+    </update>
+</mapper>

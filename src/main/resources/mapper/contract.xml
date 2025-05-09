@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.contract">
+    <insert id="insertContract" parameterType="contract">
+        insert contract (id, apply_id, project_pay_id,project_id,client_id,settle_day,start_date,end_date,pname,fee,pmanager,total_pay,status,fphone,account)
+               values (#{id}, #{apply_id},#{project_pay_id},#{project_id},#{client_id},#{settle_day},#{start_date},#{end_date},#{pname},#{fee},#{pmanager},#{total_pay},#{status},#{fphone},#{account})
+    </insert>
+
+    <select id="selectInfoForSettleById" parameterType="string" resultType="dto.AdminPrepareSettle">
+        SELECT
+            c.id,
+            c.client_id,
+            c.project_pay_id as position,
+            u.name,
+            c.settle_day,
+            c.start_date,
+            c.end_date
+        FROM contract c
+                 JOIN freelancer f ON c.freelancer_id = f.freelancer_id
+                    JOIN user u ON f.freelancer_id = u.user_id
+        WHERE c.id = #{id}
+    </select>
+
+    <select id="countContractsByProjectId" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM contract WHERE project_id = #{projectId}
+    </select>
+
+    <update id="updateClientStatus" parameterType="Map">
+        update contract set client_status = #{clientStatus} where project_id = #{projectId}
+    </update>
+
+    <select id="selectContractCountByProjectId" resultType="int" parameterType="int">
+        SELECT COUNT(*) FROM contract WHERE project_id = #{projectId}
+    </select>
+</mapper>

@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.freelancer">
+    <insert id="insertFreelancer" parameterType="freelancer">
+        insert freelancer (freelancer_id, sub_category_id, skill, address, academic, introduction, license,
+                           is_negotiable, is_resident, desired_salary, desired_location, other_requests, attachment,
+                           external_url)
+        values (#{freelancerId}, #{subCategoryId}, #{skill}, #{address}, #{academic}, #{introduction}, #{license},
+                #{isNegotiable}, #{isResident}, #{desiredSalary}, #{desiredLocation},
+                #{otherRequest}, #{attachment}, #{externalUrl})
+    </insert>
+
+    <select id="selectAllFreelancer" resultType="freelancer">
+        SELECT u.user_id,
+               u.name,
+               u.email,
+               u.registration_date,
+               u.phone_num,
+               '구직자' AS type
+        FROM freelancer f
+                 INNER JOIN user u ON f.freelancer_id = u.user_id
+    </select>
+    <select id="selectBasicFreelancerById" parameterType="String" resultType="freelancer">
+        SELECT u.user_id as freelancer_id,
+               u.name,
+               u.nickname,
+               u.password,
+               u.email,
+               u.phone_num,
+               u.profile_img,
+               f.address,
+               f.bank,
+               f.account_num
+        FROM user u
+                 INNER JOIN freelancer f ON f.freelancer_id = u.user_id
+        where u.user_id = #{freelancerId}
+    </select>
+    <select id="selectProfileImgById" parameterType="String" resultType="String">
+        SELECT profile_img
+        FROM user
+        where user_id = #{freelancerId}
+    </select>
+    <update id="updateFreelancer" parameterType="freelancer">
+        UPDATE freelancer
+            SET sub_category_id = #{subCategoryId},
+            skill = #{skill},
+            academic = #{academic},
+            introduction = #{introduction},
+            license = #{license},
+            is_negotiable = #{isNegotiable},
+            is_resident = #{isResident},
+            desired_salary = #{desiredSalary},
+            desired_location = #{desiredLocation},
+            other_requests = #{otherRequest},
+            attachment = #{attachment},
+            external_url =#{externalUrl}
+        WHERE freelancer_id = #{freelancerId}
+    </update>
+    <update id="updateUserProfile" parameterType="freelancer">
+        UPDATE user
+            SET name = #{name},
+            nickname = #{nickname},
+            password = #{password},
+            email = #{email},
+            phone_num = #{phoneNum},
+            profile_img = #{profileImg}
+        WHERE user_id = #{freelancerId}
+    </update>
+    <delete id="deleteCareerByFreelancerId" parameterType="String">
+        delete from career
+        WHERE freelancer_id = #{freelancerId}
+    </delete>
+    <update id="updateFreelancerInfo" parameterType="Map">
+        UPDATE freelancer
+        SET bank = #{bank}, account_num = #{accountNum}, address = #{address}
+        WHERE freelancer_id = #{freelancerId}
+    </update>
+
+    <select id="selectExpertFreelancerById" parameterType="String" resultType="freelancer">
+        SELECT  CONCAT(cat.category_name, ' > ', subcat.sub_category_name) AS category,
+                f.sub_category_id as subCategoryId,
+                f.skill,
+                f.academic,
+                f.introduction,
+                f.license,
+                f.is_resident,
+                f.desired_salary,
+                f.desired_location,
+                f.external_url,
+                f.other_requests as otherRequest,
+                f.is_negotiable,
+                f.attachment,
+               f.is_resident
+        FROM freelancer f
+            LEFT JOIN subCategory subcat ON f.sub_category_id = subcat.sub_category_id
+            LEFT JOIN category cat ON subcat.category_id = cat.category_id
+        where f.freelancer_id = #{freelancerId}
+    </select>
+
+    <select id="selectCategoryByFreelancerId" parameterType="String" resultType="String">
+        SELECT s.sub_category_name as category
+        FROM freelancer f join subCategory s
+        where f.freelancer_id = #{freelancerId}
+    </select>
+    <insert id="insertCareer" parameterType="career">
+        insert career (freelancer_id, company_name, department_name, position, job_title, job_description, salary,
+                           join_date, resign_date)
+        values (#{freelancerId}, #{companyName}, #{departmentName}, #{position}, #{jobTitle}, #{jobDescription}, #{salary},
+                #{joinDate}, #{resignDate})
+    </insert>
+    <select id="selectCareerListByFreelancerId" parameterType="String" resultType="career">
+        SELECT
+            company_name,
+            department_name,
+            position,
+            job_title,
+            salary,
+            job_description,
+            join_date,
+            resign_date
+        FROM
+            career
+        WHERE
+            freelancer_id = #{freelancerId}
+        ORDER BY
+            join_date DESC
+    </select>
+
+    <select id="countOngoingProjectsByFreelancerId" resultType="int" parameterType="String">
+        <![CDATA[
+        SELECT COUNT(*)
+        FROM contract c
+        join project p on c.project_id = p.project_id
+        WHERE c.freelancer_id = #{freelancerId}
+          AND p.end_date > CURDATE()
+        ]]>
+    </select>
+    <select id="selectOngoingProjectsByFreelancerId" resultType="dto.FreelancerProject" parameterType="Map">
+        <![CDATA[
+        SELECT
+        p.project_id AS projectId,
+        cl.company_name AS clientName,
+        p.project_name AS projectName,
+        CONCAT(DATE_FORMAT(p.start_date, '%Y.%m.%d'), ' ~ ', DATE_FORMAT(p.end_date, '%Y.%m.%d')) AS projectDuration,
+        c.end_date as deadlineDate,
+        p.req_skills AS reqSkills,
+        p.qualification AS qualification,
+        p.project_description AS projectDescription,
+        p.job_details AS jobDetails,
+        p.working_method AS workingMethod,
+        p.working_environment AS workingEnvironment,
+        p.working_hours AS workingHours,
+        p.manager AS projectManager,
+        p.mphone AS managerPhone,
+        CONCAT(FORMAT(c.pay, 0), ' 원') AS totalBudget,
+        c.end_date as deadlineDate,
+        CASE
+        WHEN DATEDIFF(p.deadline_date, CURDATE()) > 0 THEN CONCAT('D-', DATEDIFF(p.deadline_date, CURDATE()))
+        WHEN DATEDIFF(p.deadline_date, CURDATE()) = 0 THEN 'D-Day'
+        ELSE CONCAT('+', ABS(DATEDIFF(p.deadline_date, CURDATE())))
+        END AS d_day,
+        subcat.sub_category_name AS category
+        FROM project p
+        JOIN contract c ON c.project_id = p.project_id
+        JOIN client cl ON p.client_id = cl.client_id
+        JOIN subCategory subcat ON p.sub_category_id = subcat.sub_category_id
+
+        WHERE c.freelancer_id = #{freelancerId}
+        AND p.end_date > CURDATE()
+        ORDER BY p.end_date ASC
+        LIMIT #{row}, 10
+        ]]>
+    </select>
+    <select id="selectOngoingProjectsForMyPage" resultType="dto.FreelancerProject" parameterType="String">
+        <![CDATA[
+       SELECT
+        p.project_id AS projectId,
+        p.project_name AS projectName,
+        CONCAT(DATE_FORMAT(p.start_date, '%Y.%m.%d'), ' ~ ', DATE_FORMAT(p.end_date, '%Y.%m.%d')) AS projectDuration,
+        c.end_date as deadlineDate,
+        p.req_skills AS reqSkills,
+        p.qualification AS qualification,
+        p.project_description AS projectDescription,
+        p.job_details AS jobDetails,
+        p.working_method AS workingMethod,
+        p.working_environment AS workingEnvironment,
+        p.working_hours AS workingHours,
+        p.manager AS projectManager,
+        p.mphone AS managerPhone,
+        CONCAT(FORMAT(c.total_pay, 0), ' 원') AS totalBudget,
+        p.deadline_date,
+        CASE
+        WHEN DATEDIFF(p.deadline_date, CURDATE()) > 0 THEN CONCAT('D-', DATEDIFF(p.deadline_date, CURDATE()))
+        WHEN DATEDIFF(p.deadline_date, CURDATE()) = 0 THEN 'D-Day'
+        ELSE CONCAT('+', ABS(DATEDIFF(p.deadline_date, CURDATE())))
+        END AS d_day,
+        s.sub_category_name AS categories
+        FROM project p
+        JOIN contract c ON c.project_id = p.project_id
+        JOIN subCategory s ON p.sub_category_id = s.sub_category_id
+        WHERE c.freelancer_id = #{freelancerId}
+        AND p.end_date > CURDATE()
+        ORDER BY p.end_date ASC
+        LIMIT 5
+        ]]>
+    </select>
+
+    <select id="cntCompletedProjectsByFreelancerId" resultType="int" parameterType="String">
+        <![CDATA[
+        SELECT COUNT(*)
+        FROM contract c
+                 JOIN project p ON c.project_id = p.project_id
+        WHERE c.freelancer_id = #{freelancerId}
+          AND p.end_date <= CURDATE()
+        ]]>
+    </select>
+
+    <select id="selectCompletedProjectsByFreelancerId" resultType="dto.FreelancerProject" parameterType="Map">
+        <![CDATA[
+        SELECT
+            p.project_id AS projectId,
+            cl.company_name AS clientName,
+            p.project_name AS projectName,
+            CONCAT(DATE_FORMAT(c.start_date, '%Y.%m.%d'), ' ~ ', DATE_FORMAT(c.end_date, '%Y.%m.%d')) AS projectDuration,
+            p.req_skills AS reqSkills,
+            p.qualification AS qualification,
+            p.project_description AS projectDescription,
+            p.job_details AS jobDetails,
+            p.working_method AS workingMethod,
+            p.working_environment AS workingEnvironment,
+            p.working_hours AS workingHours,
+            p.manager AS projectManager,
+            p.mphone AS managerPhone,
+            CONCAT(FORMAT(c.pay, 0), '원') AS totalBudget,
+            subcat.sub_category_name as categories,
+            c.end_date as deadlineDate,
+            CASE
+                WHEN DATEDIFF(c.end_date, CURDATE()) > 0 THEN CONCAT('D-', DATEDIFF(c.end_date, CURDATE()))
+                WHEN DATEDIFF(c.end_date, CURDATE()) = 0 THEN 'D-Day'
+                ELSE CONCAT('+', ABS(DATEDIFF(c.end_date, CURDATE())))
+                END AS d_day
+        FROM contract c
+                 JOIN project p ON c.project_id = p.project_id
+                 JOIN client cl ON p.client_id = cl.client_id
+                 JOIN subCategory subcat ON p.sub_category_id = subcat.sub_category_id
+        WHERE c.freelancer_id = #{freelancerId}
+          AND c.end_date <= CURDATE()
+        ORDER BY c.end_date ASC
+        LIMIT #{row}, 10
+        ]]>
+    </select>
+    <select id="selectSettlementListForMyPage" resultType="dto.SettlementListForF" parameterType="Map">
+        SELECT sm.settlement_id ,sm.pname as projectName, sl.project_id, sm.ammount, sm.settleday as settleDate, sm.status
+        FROM settlement sm
+                 JOIN settlelist sl ON sm.slist_id = sl.slist_id
+        WHERE sm.freelancer_id = #{freelancerId}
+          AND sl.project_id = #{projectId}
+        GROUP BY sl.project_id, sm.pname, sm.ammount, sm.settleday, sm.status
+        ORDER BY sl.project_id, sm.settleday
+    </select>
+<!--    <select id="selectSettlementListForMyPage" resultType="dto.SettlementListForF" parameterType="Map">
+        select pname as projectName, settleday as settleDate, ammount , status
+        from settlement
+        where category_id =
+              (
+              select project_pay_id
+               from contract
+               where freelancer_id = #{freelancerId} and project_id = #{projectId}
+              )
+    </select>-->
+
+    <select id="catalogFreelancersByCategory" parameterType="int" resultType="dto.Freelancer">
+        SELECT
+            f.freelancer_id,
+            f.sub_category_id,
+            f.skill,
+            f.desired_salary,
+            f.introduction,
+            u.nickname,
+            u.profile_img
+        FROM freelancer f
+            LEFT JOIN user u ON f.freelancer_id = u.user_id
+        WHERE f.sub_category_id = #{category}
+    </select>
+
+<!--    <select id="searchFreelancersByCategoryAndKeyword" parameterType="map" resultType="dto.Freelancer">
+        SELECT
+            f.freelancer_id,
+            f.category,
+            f.skill,
+            f.desired_salary,
+            f.introduction,
+            u.nickname,
+            u.profile_img,
+            sc.sub_category_name,
+            c.category_id,
+            c.category_name,
+            COALESCE(AVG(r.star), 0) AS avg_star
+        FROM freelancer f
+                 LEFT JOIN user u ON f.freelancer_id = u.user_id
+        WHERE f.category = #{category}
+          AND (
+            f.introduction LIKE CONCAT('%', #{keyword}, '%')
+                OR u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            )
+    </select>-->
+
+    <select id="searchFreelancersByCategoryAndKeyword" parameterType="map" resultType="dto.Freelancer">
+        SELECT
+        f.freelancer_id,
+        f.skill,
+        f.desired_salary,
+        f.introduction,
+        u.nickname,
+        u.profile_img,
+        sc.sub_category_id,
+        sc.sub_category_name,
+        c.category_id,
+        c.category_name
+     --   COALESCE(AVG(r.star), 0) AS avg_star
+        FROM freelancer f
+        LEFT JOIN subCategory sc ON f.sub_category_id = sc.sub_category_id
+        LEFT JOIN category c ON sc.category_id = c.category_id
+        LEFT JOIN user u ON f.freelancer_id = u.user_id
+       -- LEFT JOIN review r ON f.freelancer_id = r.r_user_id
+        WHERE 1=1
+        <if test="keyword != null and keyword != ''">
+            AND (
+            f.introduction LIKE CONCAT('%', #{keyword}, '%')
+            OR u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            )
+        </if>
+        <if test="category != null and category != '' and category != '전체'">
+            AND c.category_name = #{category}
+        </if>
+        GROUP BY f.freelancer_id
+        ORDER BY f.freelancer_id DESC
+    </select>
+
+    <select id="catalogFreelancersBySubCategoryIds" parameterType="list" resultType="dto.Freelancer">
+        SELECT
+        f.freelancer_id,
+        f.sub_category_id,
+        f.skill,
+        f.desired_salary,
+        f.introduction,
+        u.nickname,
+        u.profile_img,
+        sc.sub_category_name,
+        c.category_id,
+        c.category_name
+     --   COALESCE(AVG(r.star), 0) AS avg_star
+        FROM freelancer f
+        LEFT JOIN subCategory sc ON f.sub_category_id = sc.sub_category_id
+        LEFT JOIN category c ON sc.category_id = c.category_id
+        LEFT JOIN user u ON f.freelancer_id = u.user_id
+      --  LEFT JOIN review r ON f.freelancer_id = r.r_user_id
+        WHERE f.sub_category_id IN
+        <foreach item="id" index="index" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        GROUP BY f.freelancer_id
+        ORDER BY f.freelancer_id DESC
+    </select>
+
+    <select id="findAllFreelancers" resultType="dto.Freelancer">
+        SELECT
+            f.freelancer_id,
+            f.sub_category_id,
+            f.skill,
+            f.desired_salary,
+            f.introduction,
+            u.nickname,
+            u.profile_img,
+            sc.sub_category_name,
+            c.category_id,
+            c.category_name
+       --     COALESCE(AVG(r.star), 0) AS avg_star
+        FROM freelancer f
+                 LEFT JOIN subCategory sc ON f.sub_category_id = sc.sub_category_id
+                 LEFT JOIN category c ON sc.category_id = c.category_id
+                 LEFT JOIN user u ON f.freelancer_id = u.user_id
+          --       LEFT JOIN review r ON f.freelancer_id = r.r_user_id
+        GROUP BY f.freelancer_id
+        ORDER BY f.freelancer_id DESC
+    </select>
+</mapper>

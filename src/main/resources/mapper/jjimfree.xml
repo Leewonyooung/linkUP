@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.jjimfree">
+
+
+    <insert id="insertJjimFree" parameterType="Map">
+        insert jjimFree (client_id, freelancer_id)
+        values (#{client_id}, #{freelancer_id})
+    </insert>
+    <select id="isFreelancerLiked" parameterType="Map" resultType="Integer">
+        select count(*)
+        from jjimFree
+        where freelancer_id = #{freelancerId} and client_id = #{clientId}
+    </select>
+<!--    페이징 처리 -->
+    <select id="selectJjimFree" parameterType="Integer" resultType="jjimFree">
+        select * from jjimFree where client_id = #{clientId} order by jjim_id desc limit #{row}, 9
+
+    </select>
+
+    <!-- 페이징 처리 없이 ALL Select (토글 기능) -->
+    <select id="selectAllFavoritesByClientId" parameterType="String" resultType="dto.ClientFavorites">
+        SELECT * FROM jjimFree WHERE client_id = #{clientId} order by jjim_id;
+    </select>
+
+
+    <select id="selectJjimCount" resultType="Integer">
+        select count(*) from jjimFree
+    </select>
+
+<!--    찜 목록 상세 글-->
+    <select id="selectFavoritesByClient" parameterType="map" resultType="map">
+        SELECT
+        f.freelancer_id AS freelancer_id,
+        u.profile_img AS profile_img,
+        u.name AS name,
+        f.desired_location AS desired_location,
+        f.skill AS skill,
+       -- (SELECT ROUND(AVG(r.star), 1) FROM review r WHERE r.r_user_id = f.freelancer_id) AS rating,
+        (SELECT COUNT(*) FROM contract c WHERE c.freelancer_id = jf.freelancer_id) AS project_count
+        FROM jjimFree jf
+        LEFT JOIN freelancer f ON jf.freelancer_id = f.freelancer_id
+        LEFT JOIN user u ON f.freelancer_id = u.user_id
+        WHERE jf.client_id = #{clientId}
+        ORDER BY
+        <choose>
+            <when test="sort == 'score'"> rating DESC</when>
+            <when test="sort == 'project'"> project_count DESC</when>
+            <otherwise> jf.jjim_id DESC</otherwise>
+        </choose>
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="selectFavoritesCountWithFilter" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM jjimFree jf
+                 JOIN freelancer f ON jf.freelancer_id = f.freelancer_id
+                 JOIN user u ON f.freelancer_id = u.user_id
+        WHERE jf.client_id = #{clientId}
+    </select>
+
+<!--    찜 등록-->
+    <insert id="insertFavorite" parameterType="map">
+        INSERT INTO jjimFree (client_id, freelancer_id)
+        VALUES (#{clientId}, #{freelancerId})
+    </insert>
+
+<!--    찜 해제-->
+    <delete id="deleteFavorite" parameterType="map">
+        DELETE FROM jjimFree
+        WHERE client_id = #{clientId}
+          AND freelancer_id = #{freelancerId}
+    </delete>
+
+    <!-- 찜 여부 확인 (찜 해제 필요한지 확인 여부-->
+    <select id="existsFavorite" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM jjimFree
+        WHERE client_id = #{clientId}
+        AND freelancer_id = #{freelancerId}
+    </select>
+</mapper>

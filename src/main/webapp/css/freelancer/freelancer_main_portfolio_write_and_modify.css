@@ -1,0 +1,302 @@
+.section{
+    margin-bottom: 30px;
+}
+.container{
+    margin: 0 auto;
+    max-width: fit-content !important;
+    justify-content:center;
+}
+.content{
+    padding-right: 40px;
+    max-width: 1000px;
+}
+.portfolio-register-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.portfolio-title-input {
+    width: 100%;
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.thumbnail-project-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.thumbnail-upload-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.thumbnail-upload-section{
+    width: 50%;
+}
+.thumbnail-upload-box {
+    width: 200px;
+    background-color: #f5f5f5;
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+.upload-placeholder {
+    display: inline-flex;
+    align-content: center;
+}
+.upload-placeholder > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.project-period input[type="month"] {
+    margin: 0 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.team-role input,
+.skills-section select,
+.portfolio-description textarea,
+#skills
+{
+    width: 480px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow-y: auto ;
+}
+#skills{
+    width: 86%;
+    margin: 1px;
+}
+
+.skill-tags {
+    margin-top: 10px;
+}
+
+.skill-tags span {
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    background-color: #e5d4f5;
+    color: #5c057b;
+    /* padding: 10px 18px; */
+    padding: 6px 14px;
+    font-weight: 500;
+    border-radius: 16px;
+    margin: 6px 8px 0 0;
+    height: 36px;
+    position: relative;
+}
+.skill-tags span button {
+    background: none;
+    border: none;
+    color: #5c057b;
+    /*color: #d9534f;*/
+    cursor: pointer;
+}
+.skill-tags {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 30px; /* 버튼과 태그 사이 간격 확보 */
+}
+
+#clear-skills {
+    top: 0;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    background-color: #772e91;
+    color: white;
+    font-weight: 500;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    height: 36px;
+    line-height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+.skill-tag {
+    background-color: #772e91;
+    color: white;
+    /* border: none; */
+    font-weight: 500;
+    border: 1px solid #bbb;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    height: 36px;
+    line-height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+.delete-skill-btn {
+    text-decoration: none;
+    margin-left: 8px;
+    color: #5c057b;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 1;
+}
+#introduction{
+    overflow-y: auto;
+    resize: none;
+    width: 900px;
+    height: 100px;
+}
+
+/* 첨부파일 버튼 정렬 */
+.project-info-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.file-upload-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+tr{
+    border-top: 1px solid #ccc;
+    width: 100%;
+    display: inline-flex;
+}
+th, td{
+    border-top : 0px;
+    border-bottom : 0px;
+}
+table th:first-child,
+table td:first-child {
+    /*width: 240px;*/
+    white-space: nowrap;
+    border-right: 1px solid #e0e0e0;
+    width: 30%;
+    display: flex;
+    border-right: 1px solid #e0e0e0;
+    align-items: center;
+    justify-content: center;
+}
+
+table th:nth-child(2),
+table td:nth-child(2){
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    height: 100%;
+    width: 70%;
+}
+table th:nth-child(3), table td:nth-child(3){
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+    padding: 15px 5px;
+}
+.file-upload-section input[type="url"],
+.file-upload-section input[type="text"],
+.file-upload-section input[type="file"]  {
+    width: 60%;
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.file-section a, .file-section span {
+    margin-top: 10px;
+    font-size: medium;
+}
+.file-section a{
+    margin-left: 5px;
+}
+
+td label{
+    font-size: medium;
+}
+
+p.attachment-notification {
+    font-size: 11px;
+    color: red;
+    margin: 1px;
+}
+.file-upload-section button {
+    padding: 8px 12px;
+    font-size: 13px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+#submit-btn,
+#temp-submit-btn,
+#delete-btn,
+#add-project-log,
+#add-attachment-file,
+#add-outer-url,
+#list-btn,delete-btn{
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+#submit-btn,#add-project-log { background-color: #5c057b; color: #F5EFFF;}
+#temp-submit-btn,#add-attachment-file { background-color: #777; }
+#delete-btn, #add-outer-url { background-color: #d9534f; }
+#list-btn{
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background-color: #5bc0de;
+}
