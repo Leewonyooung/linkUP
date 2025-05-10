@@ -24,9 +24,9 @@
 </head>
 
 <body>
-<jsp:include page="/admin/admin_header.jsp" />
+<jsp:include page="admin_header.jsp" />
 <div class="container">
-    <jsp:include page="/admin/menutap.jsp" />
+    <jsp:include page="menutap.jsp" />
     <main class="content">
         <section class="section">
             <div class="content-header">

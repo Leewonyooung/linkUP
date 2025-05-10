@@ -4,11 +4,13 @@ import com.example.linkup.dto.AdminProject;
 import com.example.linkup.dto.AdminProjectDetail;
 import org.apache.ibatis.session.SqlSession;
 import com.example.linkup.util.MybatisSqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class ProjectDAO implements IProjectDAO {
     SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 

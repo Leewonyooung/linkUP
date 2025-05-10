@@ -13,27 +13,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8" />
   <title>업체 프로젝트 목록</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css" />
-  <link rel="stylesheet" href="../css/table_common.css" />
-  <link rel="stylesheet" href="../css/admin/company_project_list.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
+  <link rel="stylesheet" href="${contextPath}/css/table_common.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/company_project_list.css" />
   <script>
     const defaultOpenMenuId = "projectMenu";
   </script>
-  <script src="../js/include_common.js"></script>
+  <script src="${contextPath}/js/include_common.js"></script>
 
 </head>
 <body>
-  <div id="header-include"></div>
+<jsp:include page="admin_header.jsp" />
   <div class="layout-wrapper">
-    <div id="menu-include"></div>
+    <jsp:include page="menutap.jsp" />
     <div class="content">
       <div class="page-header">
         <h2>㈜테크놀로지 주식회사<br><span style="font-size:14px; font-weight:normal;">프로젝트 목록</span></h2>
       </div>
-
-      <!-- 검색 필터 바 -->
       <form class="search-bar" onsubmit="event.preventDefault(); /* TODO: 검색 동작 구현 예정 */">
         <input type="text" placeholder="🔍 프로젝트명 검색">
         <select>

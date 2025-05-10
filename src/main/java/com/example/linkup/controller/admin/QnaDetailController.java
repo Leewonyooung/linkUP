@@ -1,40 +1,32 @@
 package com.example.linkup.controller.admin;
 
-import com.example.linkup.dao.admin.QnaDAO;
 import com.example.linkup.dto.QnA;
 import com.example.linkup.service.admin.IQnaService;
-import com.example.linkup.service.admin.QnaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
+@Controller
+public class QnaDetailController {
 
-@WebServlet("/admin/qnadetail")
-public class QnaDetailController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+    private final IQnaService qnaService;
 
-    public QnaDetailController() {
-        super();
+    @Autowired
+    public QnaDetailController(IQnaService qnaService) {
+        this.qnaService = qnaService;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int qnaId = Integer.parseInt(request.getParameter("qnaId"));
-        QnaDAO dao = new QnaDAO();
-        IQnaService qnaService = new QnaService(dao);
-        QnA qna = null;
+    @GetMapping("/admin/qnadetail")
+    public String getQnaDetail(@RequestParam("qnaId") int qnaId, Model model) {
         try {
-            qna = qnaService.selectQnaById(qnaId);
+            QnA qna = qnaService.selectQnaById(qnaId);
+            model.addAttribute("qna", qna);
+            return "admin/qna_detail"; // => /WEB-INF/views/admin/qna_detail.jsp
         } catch (Exception e) {
             e.printStackTrace();
+            return "error/500"; // 별도의 오류 페이지를 구성했을 경우
         }
-        request.setAttribute("qna", qna);
-        request.getRequestDispatcher("/admin/qna_detail.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

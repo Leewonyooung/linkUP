@@ -2,67 +2,74 @@ package com.example.linkup.controller.admin;
 
 import com.example.linkup.dao.admin.QnaDAO;
 import com.example.linkup.dto.QnA;
+import com.example.linkup.service.admin.IQnaService;
+import com.example.linkup.service.admin.QnaService;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin/qna")
-public class QnaController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class QnaController {
 
-    public QnaController() {
-        super();
+    private final IQnaService qnaService;
+
+    @Autowired
+    public QnaController(IQnaService QnaService) {
+        this.qnaService = QnaService;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-
-        String keyword = request.getParameter("keyword");
-        keyword = (keyword != null && keyword.trim().isEmpty()) ? null : keyword;
-        String category = request.getParameter("category");
-        category = (category != null && category.trim().isEmpty()) ? null : category;
-        String answerStatus = request.getParameter("answerStatus");
-        answerStatus = (answerStatus != null && answerStatus.trim().isEmpty()) ? null : answerStatus;
-        String startDate = request.getParameter("startDate");
-        startDate = (startDate != null && startDate.trim().isEmpty()) ? null : startDate;
-        String endDate = request.getParameter("endDate");
-        endDate = (endDate != null && endDate.trim().isEmpty()) ? null : endDate;
-
-        String pageParam = request.getParameter("page");
-        int curPage = (pageParam == null || pageParam.isEmpty()) ? 1 : Integer.parseInt(pageParam);
-        int perPage = 8;
-        int offset = (curPage - 1) * perPage;
-
+    @GetMapping("/admin/qna")
+    public String qnaList(
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "answerStatus", required = false) String answerStatus,
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            @RequestParam(value = "page", required = false, defaultValue = "1") int curPage,
+            Model model
+    ) {
         try {
-            QnaDAO qnaDAO = new QnaDAO();
-            List<QnA> qnaList = qnaDAO.selectPagedQna(offset, perPage, keyword, category, answerStatus, startDate, endDate);
-            System.out.println("qnaList: " + qnaList);
-            int totalCount = qnaDAO.countQna(keyword, category, answerStatus, startDate, endDate);
-            int answeredTotalCount = qnaDAO.countAnsweredQna();  // ✅ 추가!
+            // 빈 값 처리
+            keyword = isEmpty(keyword) ? null : keyword;
+            category = isEmpty(category) ? null : category;
+            answerStatus = isEmpty(answerStatus) ? null : answerStatus;
+            startDate = isEmpty(startDate) ? null : startDate;
+            endDate = isEmpty(endDate) ? null : endDate;
+
+            int perPage = 8;
+            int offset = (curPage - 1) * perPage;
+
+            List<QnA> qnaList = qnaService.selectPagedQna(offset, perPage, keyword, category, answerStatus, startDate, endDate);
+            int totalCount = qnaService.countQna(keyword, category, answerStatus, startDate, endDate);
+            int answeredTotalCount = qnaService.countAnsweredQna();
 
             PageInfo pageInfo = new PageInfo(curPage);
             int allPage = (int) Math.ceil((double) totalCount / perPage);
-            pageInfo.setAllPage(allPage);
             int startPage = Math.max(1, curPage - 2);
             int endPage = Math.min(allPage, startPage + 4);
+
+            pageInfo.setAllPage(allPage);
             pageInfo.setStartPage(startPage);
             pageInfo.setEndPage(endPage);
 
-            request.setAttribute("qnaList", qnaList);
-            request.setAttribute("totalCount", totalCount);
-            request.setAttribute("answeredTotalCount", answeredTotalCount); // ✅ 추가!
-            request.setAttribute("pageInfo", pageInfo);
+            model.addAttribute("qnaList", qnaList);
+            model.addAttribute("totalCount", totalCount);
+            model.addAttribute("answeredTotalCount", answeredTotalCount);
+            model.addAttribute("pageInfo", pageInfo);
 
-            request.getRequestDispatcher("/admin/qna_manage.jsp").forward(request, response);
+            return "admin/qna_manage"; // /WEB-INF/views/admin/qna_manage.jsp
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "서버 내부 오류 발생");
+            return "error/500"; // 별도의 에러 페이지가 있다면
         }
+    }
 
+    private boolean isEmpty(String str) {
+        return (str == null || str.trim().isEmpty());
     }
 }

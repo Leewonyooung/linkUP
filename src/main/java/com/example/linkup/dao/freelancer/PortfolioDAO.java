@@ -3,11 +3,13 @@ package com.example.linkup.dao.freelancer;
 import com.example.linkup.dto.Portfolio;
 import org.apache.ibatis.session.SqlSession;
 import com.example.linkup.util.MybatisSqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class PortfolioDAO implements IPortfolioDAO {
     private SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 

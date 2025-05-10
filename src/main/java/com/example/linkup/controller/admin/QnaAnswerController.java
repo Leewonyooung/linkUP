@@ -1,37 +1,36 @@
 package com.example.linkup.controller.admin;
 
-import com.example.linkup.dao.admin.QnaDAO;
 import com.example.linkup.service.admin.IQnaService;
-import com.example.linkup.service.admin.QnaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin/qna-answer")
-public class QnaAnswerController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class QnaAnswerController {
 
-    public QnaAnswerController() {
-        super();
+    private final IQnaService qnaService;
+
+    @Autowired
+    public QnaAnswerController(IQnaService qnaService) {
+        this.qnaService = qnaService;
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-
-        int qnaId = Integer.parseInt(request.getParameter("qnaId"));
-        String answerContent = request.getParameter("answerContent");
-
-        QnaDAO dao = new QnaDAO();
-        IQnaService qnaService = new QnaService(dao);
+    @PostMapping("/admin/qna-answer")
+    public String postAnswer(
+            @RequestParam("qnaId") int qnaId,
+            @RequestParam("answerContent") String answerContent,
+            HttpServletResponse response
+    ) {
         try {
             qnaService.updateAnswer(qnaId, answerContent);
-            response.sendRedirect(request.getContextPath() + "/admin/qna");  // 답변 저장 후 목록으로
+            return "redirect:/admin/qna";
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "답변 저장 중 오류 발생");
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return "error/500"; // 또는 별도 에러 페이지
         }
     }
 }

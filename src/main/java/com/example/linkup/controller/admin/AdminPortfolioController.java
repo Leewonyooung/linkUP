@@ -2,51 +2,43 @@ package com.example.linkup.controller.admin;
 
 import com.example.linkup.dto.Portfolio;
 import com.example.linkup.service.freelancer.IPortfolioService;
-import com.example.linkup.service.freelancer.PortfolioService;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
-//@WebServlet("/admin/portfolio-list")
 @Controller
-public class AdminPortfolioController extends HttpServlet {
+public class AdminPortfolioController {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        IPortfolioService service = new PortfolioService();
-        String freelancerId = request.getParameter("freelancerid");
-        String pageStr = request.getParameter("page");
-        Integer page = null;
-        if(pageStr == null) {
-            page = 1;
-        } else {
-            page = Integer.parseInt(pageStr);
-        }
+    private final IPortfolioService portfolioService;
+
+    @Autowired
+    public AdminPortfolioController(IPortfolioService portfolioService) {
+        this.portfolioService = portfolioService;
+    }
+
+    @GetMapping("/admin/portfolio")
+    public String showPortfolioList(@RequestParam("freelancerid") String freelancerId,
+                                    @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
+                                    Model model) {
         PageInfo pageInfo = new PageInfo(page);
-
-        List<Portfolio> portfolioList;
         try {
-            Integer portfolioCnt = service.selectPortfolioCnt(freelancerId);
+            Integer portfolioCnt = portfolioService.selectPortfolioCnt(freelancerId);
             if (portfolioCnt > 0) {
-                portfolioList = service.selectPortfolioListByPage(pageInfo, freelancerId);
-                request.setAttribute("pageInfo", pageInfo);
-                request.setAttribute("portfolioList", portfolioList);
-            } else if (portfolioCnt == 0){
-                request.setAttribute("portfolioList", null);
+                List<Portfolio> portfolioList = portfolioService.selectPortfolioListByPage(pageInfo, freelancerId);
+                model.addAttribute("pageInfo", pageInfo);
+                model.addAttribute("portfolioList", portfolioList);
+            } else {
+                model.addAttribute("portfolioList", null);
             }
-            request.getRequestDispatcher("/admin/portfolio_list.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("err", "포트폴리오 목록 조회를 실패했습니다.");
-            request.getRequestDispatcher("/freelancer/portfolio_list.jsp").forward(request, response);
+            model.addAttribute("err", "포트폴리오 목록 조회를 실패했습니다.");
         }
+        return "admin/portfolio_list"; // -> /WEB-INF/views/admin/portfolio_list.jsp
     }
 }

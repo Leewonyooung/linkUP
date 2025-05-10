@@ -1,49 +1,48 @@
 package com.example.linkup.controller.admin;
 
-import com.example.linkup.dao.admin.ContractDAO;
-import com.example.linkup.dao.admin.ProjectDAO;
-import com.example.linkup.dao.admin.SettlementDAO;
 import com.example.linkup.dto.AdminSettleHistorySummary;
 import com.example.linkup.service.admin.ISettlementService;
-import com.example.linkup.service.admin.SettlementService;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@WebServlet("/admin/settlement-history")
-public class SettleHistoryController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class SettleHistoryController {
 
-    private final ISettlementService settlementService = new SettlementService(
-            new ContractDAO(), new ProjectDAO(), new SettlementDAO()
-    );
+    private final ISettlementService settlementService;
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        String keyword = Optional.ofNullable(request.getParameter("keyword")).orElse("");
-        String startDate = request.getParameter("startDate");
-        String endDate = request.getParameter("endDate");
-        int curPage = 1;
+    @Autowired
+    public SettleHistoryController(ISettlementService settlementService) {
+        this.settlementService = settlementService;
+    }
+
+    @GetMapping("/admin/settlement-history")
+    public String getSettleHistoryList(
+            @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            @RequestParam(value = "page", required = false, defaultValue = "1") int curPage,
+            Model model
+    ) {
         int listCount = 10;
-        try {
-            curPage = Integer.parseInt(request.getParameter("page"));
-        } catch (NumberFormatException ignored) {}
-        PageInfo pageInfo = new PageInfo();
-        pageInfo.setCurPage(curPage);
 
-        int totalCount = 0;
+        // ✅ 페이지 정보 계산
+        int totalCount;
         try {
             totalCount = settlementService.countHistory(keyword, startDate, endDate);
         } catch (Exception e) {
             e.printStackTrace();
+            totalCount = 0;
         }
+
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setCurPage(curPage);
+
         int allPage = (int) Math.ceil((double) totalCount / listCount);
         int startPage = ((curPage - 1) / 10) * 10 + 1;
         int endPage = Math.min(startPage + 9, allPage);
@@ -52,25 +51,21 @@ public class SettleHistoryController extends HttpServlet {
         pageInfo.setStartPage(startPage);
         pageInfo.setEndPage(endPage);
 
+        // ✅ 데이터 조회
         int offset = (curPage - 1) * listCount;
-        List<AdminSettleHistorySummary> list = new ArrayList<>();
+        List<AdminSettleHistorySummary> settlementList;
         try {
-            list = settlementService.selectHistorySummaryList(keyword, startDate, endDate, offset, listCount);
+            settlementList = settlementService.selectHistorySummaryList(keyword, startDate, endDate, offset, listCount);
         } catch (Exception e) {
             e.printStackTrace();
+            settlementList = List.of(); // 비어있더라도 렌더링에 문제 없도록
         }
-        for(AdminSettleHistorySummary s : list) {
-            System.out.println("s = " + s);
-        }
-        request.setAttribute("settlementList", list);
-        request.setAttribute("pageInfo", pageInfo);
-        request.setAttribute("totalCount", totalCount);
-        request.getRequestDispatcher("/admin/settle_history.jsp").forward(request, response);
-    }
 
+        // ✅ JSP로 전달
+        model.addAttribute("settlementList", settlementList);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("totalCount", totalCount);
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        return "admin/settle_history";  // => /WEB-INF/views/admin/settle_history.jsp
     }
 }

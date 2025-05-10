@@ -1,38 +1,33 @@
 package com.example.linkup.controller.admin;
 
-import com.google.gson.Gson;
 import com.example.linkup.dao.admin.ISettlementDAO;
 import com.example.linkup.dao.admin.SettlementDAO;
 import com.example.linkup.dto.SettledInfoDTO;
+import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@RestController
+public class SettlementMonthController {
 
-@WebServlet("/admin/settlementMonth")
-public class SettlementMonthController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+    private final ISettlementDAO settlementDAO = new SettlementDAO();
 
-    public SettlementMonthController() {
-        super();
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+    @GetMapping("/admin/settlementMonth")
+    public void getSettlementMonthData(
+            @RequestParam("projectId") Integer projectId,
+            @RequestParam("cnt") Integer cnt,
+            HttpServletResponse response
+    ) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
 
-        ISettlementDAO settlementDAO = new SettlementDAO();
-
         try {
-            Integer projectId = Integer.parseInt(request.getParameter("projectId"));
-            Integer cnt = Integer.parseInt(request.getParameter("cnt")); // ✅ cnt로 받는다
-
             Map<String, Object> paramMap = new HashMap<>();
             paramMap.put("projectId", projectId);
             paramMap.put("cnt", cnt);
@@ -49,9 +44,7 @@ public class SettlementMonthController extends HttpServlet {
             result.put("waitList", waitList);
             result.put("totalAmount", totalAmount);
 
-            String json = new Gson().toJson(result);
-            response.getWriter().write(json);
-
+            response.getWriter().write(new Gson().toJson(result));
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

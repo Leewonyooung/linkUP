@@ -3,31 +3,26 @@
  * GET : /admin/login admin/login.jsp 렌더링
  * POST : /admin/login 로그인 처리 -- 추후 로그인 처리 로직 추가 --
  */
-
 package com.example.linkup.controller.admin;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-@WebServlet("/admin/login")
-public class LoginController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+import javax.servlet.http.HttpServletRequest;
 
-    public LoginController() {
-        super();
+@Controller
+public class LoginController {
+
+    @GetMapping("/admin/login")
+    public String showLoginForm() {
+        return "admin/login"; // → /WEB-INF/views/admin/login.jsp
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-//        request.getRequestDispatcher("/admin/dashboard").forward(request, response);
-        response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+    @PostMapping("/admin/login")
+    public String processLogin(HttpServletRequest request) {
+        // 로그인 로직은 추후 구현 예정
+        // request.setCharacterEncoding("utf-8"); 는 필터로 대체됨
+        return "redirect:/admin/dashboard";
     }
 }

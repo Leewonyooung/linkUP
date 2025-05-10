@@ -3,51 +3,46 @@
  * GET : 프로젝트나 정산등을 통해 프리랜서의 상세 정보를 렌더링
  */
 package com.example.linkup.controller.admin;
-
-import com.example.linkup.dao.admin.FreelancerDAO;
-import com.example.linkup.dao.admin.IFreelancerDAO;
 import com.example.linkup.dto.AdminFreelancer;
 import com.example.linkup.dto.Career;
-import com.example.linkup.service.admin.FreelancerService;
 import com.example.linkup.service.admin.IFreelancerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-@WebServlet("/admin/freelancer")
-public class FreeLancerController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class FreeLancerController {
 
-    public FreeLancerController() {
-        super();
+    private final IFreelancerService freelancerService;
+
+    @Autowired
+    public FreeLancerController(IFreelancerService freelancerService) {
+        this.freelancerService = freelancerService;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        String freelancerid = request.getParameter("freelancerid");
-
-        IFreelancerDAO freelancerDAO = new FreelancerDAO();
-        IFreelancerService freelancerService = new FreelancerService(freelancerDAO);
-
-        AdminFreelancer freelancer = null;
-        List<Career> selectedCarreerList = null;
+    @GetMapping("/admin/freelancer")
+    public String showFreelancerDetail(@RequestParam("freelancerid") String freelancerId, Model model) {
         try {
-            freelancer = freelancerService.selectFreelancerById(freelancerid);
-            selectedCarreerList = freelancerService.selectCareerListByFreelancerId(freelancerid);
-            for(Career career : selectedCarreerList) {
-                System.out.println("Selected Career : "+career);
+            AdminFreelancer freelancer = freelancerService.selectFreelancerById(freelancerId);
+            List<Career> careerList = freelancerService.selectCareerListByFreelancerId(freelancerId);
+
+            for (Career career : careerList) {
+                System.out.println("Selected Career: " + career);
             }
+
+            model.addAttribute("freelancer", freelancer);
+            model.addAttribute("name", Objects.requireNonNull(freelancer).getName());
+            model.addAttribute("careerList", careerList);
         } catch (Exception e) {
             e.printStackTrace();
+            model.addAttribute("error", "프리랜서 정보를 불러오는 중 오류 발생");
         }
-        request.setAttribute("name", Objects.requireNonNull(freelancer).getName());
-        request.setAttribute("careerList", selectedCarreerList);
-        request.setAttribute("freelancer", freelancer);
-        request.getRequestDispatcher("/admin/freelancer_detail.jsp").forward(request, response);
+
+        return "admin/freelancer_detail"; // => /WEB-INF/views/admin/freelancer_detail.jsp
     }
 }

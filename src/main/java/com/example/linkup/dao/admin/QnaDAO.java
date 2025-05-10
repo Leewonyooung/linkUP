@@ -4,11 +4,13 @@ import com.example.linkup.dto.QnA;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.example.linkup.util.SingleTonSession;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class QnaDAO {
     private final SqlSessionFactory sqlSession = SingleTonSession.getInstance();
 

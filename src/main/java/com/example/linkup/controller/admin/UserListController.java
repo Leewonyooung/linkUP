@@ -12,43 +12,37 @@ package com.example.linkup.controller.admin;
 
 import com.example.linkup.dao.admin.ClientDAO;
 import com.example.linkup.dao.admin.FreelancerDAO;
-import com.example.linkup.dao.admin.IClientDAO;
-import com.example.linkup.dao.admin.IFreelancerDAO;
-import com.example.linkup.dto.Freelancer;
 import com.example.linkup.dto.ClientUserInfo;
+import com.example.linkup.dto.Freelancer;
 import com.example.linkup.service.admin.ClientService;
 import com.example.linkup.service.admin.FreelancerService;
 import com.example.linkup.service.admin.IClientService;
 import com.example.linkup.service.admin.IFreelancerService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-@WebServlet("/admin/users")
-public class UserListController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class UserListController {
+
+    private final IClientService clientService;
+    private final IFreelancerService freelancerService;
 
     public UserListController() {
-        super();
+        this.clientService = new ClientService(new ClientDAO());
+        this.freelancerService = new FreelancerService(new FreelancerDAO());
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-
-        String keyword = request.getParameter("keyword");
-        String userType = request.getParameter("usertype");
-
-        IClientDAO clientDAO = new ClientDAO();
-        IFreelancerDAO freelancerDAO = new FreelancerDAO();
-        IClientService clientService = new ClientService(clientDAO);
-        IFreelancerService freelancerService = new FreelancerService(freelancerDAO);
-
+    @GetMapping("/admin/users")
+    public String getUserList(
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "usertype", required = false) String userType,
+            Model model
+    ) {
         List<Freelancer> freelancerList = new ArrayList<>();
         List<ClientUserInfo> clientList = new ArrayList<>();
 
@@ -56,34 +50,24 @@ public class UserListController extends HttpServlet {
             boolean hasKeyword = keyword != null && !keyword.trim().isEmpty();
 
             if (hasKeyword) {
-                if ("all".equals(userType) || userType == null || userType.trim().isEmpty()) {
+                if (userType == null || userType.trim().isEmpty() || "all".equals(userType)) {
                     freelancerList = freelancerService.searchFreelancersByKeyword(keyword);
                     clientList = clientService.selectClientsByKeyword(keyword);
-
                 } else if ("freelancer".equals(userType)) {
                     freelancerList = freelancerService.searchFreelancersByKeyword(keyword);
-
                 } else if ("client".equals(userType)) {
                     clientList = clientService.selectClientsByKeyword(keyword);
                 }
             }
-            // 👉 else문으로 아무것도 안 불러오게 한다. (빈 리스트 그대로)
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("freelancerList", freelancerList);
-        request.setAttribute("clientList", clientList);
-        request.setAttribute("paramKeyword", keyword);
-        request.setAttribute("paramUsertype", userType);
-        request.getRequestDispatcher("/admin/user_info.jsp").forward(request, response);
-    }
+        model.addAttribute("freelancerList", freelancerList);
+        model.addAttribute("clientList", clientList);
+        model.addAttribute("paramKeyword", keyword);
+        model.addAttribute("paramUsertype", userType);
 
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        return "admin/user_info"; // => /WEB-INF/views/admin/user_info.jsp
     }
 }

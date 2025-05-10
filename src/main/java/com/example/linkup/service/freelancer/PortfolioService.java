@@ -1,18 +1,19 @@
 package com.example.linkup.service.freelancer;
-//
-//import java.util.ArrayList;
 import java.util.*;
 
 import com.example.linkup.dao.freelancer.IPortfolioDAO;
 import com.example.linkup.dto.Portfolio;
-import com.example.linkup.dao.freelancer.PortfolioDAO;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PortfolioService implements IPortfolioService{
-    private IPortfolioDAO iportfolioDAO;
-    public PortfolioService() {
-        super();
-        iportfolioDAO = new PortfolioDAO();
+    private static IPortfolioDAO iportfolioDAO;
+
+    @Autowired
+    public PortfolioService(IPortfolioDAO portfolioDAO) {
+        iportfolioDAO = portfolioDAO;
     }
 
     @Override
@@ -91,7 +92,6 @@ public class PortfolioService implements IPortfolioService{
             if(portfolio.getExternalUrl() != null) {
                 portfolio.setExternalUrlList(portfolio.getExternalUrl().split("\\^"));
             }
-            System.out.println(portfolio.toString());
         }
         return portfolio;
     }

@@ -1,31 +1,34 @@
 package com.example.linkup.controller.admin;
-import com.google.gson.Gson;
+
 import com.example.linkup.dao.admin.SettlementDAO;
 import com.example.linkup.dto.SettlementDetailDTO;
+import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin/settlement-detail")
-public class SettlementDetailModalController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@RestController
+public class SettlementDetailModalController {
+
     private final SettlementDAO settlementDAO = new SettlementDAO();
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String freelancerName = request.getParameter("freelancerName"); // 🔥 수정
-        int projectId = Integer.parseInt(request.getParameter("projectId"));
+    @GetMapping("/admin/settlement-detail")
+    public void getSettlementDetail(
+            @RequestParam("freelancerName") String freelancerName,
+            @RequestParam("projectId") int projectId,
+            HttpServletResponse response
+    ) {
         try {
             List<SettlementDetailDTO> settlementList = settlementDAO.selectSettlementHistory(freelancerName, projectId);
             response.setContentType("application/json; charset=UTF-8");
             new Gson().toJson(settlementList, response.getWriter());
-
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

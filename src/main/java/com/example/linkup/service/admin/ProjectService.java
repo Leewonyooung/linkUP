@@ -4,13 +4,17 @@ import com.example.linkup.dao.admin.ProjectDAO;
 import com.example.linkup.dto.AdminProject;
 import com.example.linkup.dto.AdminProjectDetail;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProjectService implements IProjectService{
 
     private static ProjectDAO projectDAO;
 
+    @Autowired
     public ProjectService(ProjectDAO projectDAO) {
         ProjectService.projectDAO = projectDAO;
     }

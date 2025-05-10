@@ -16,17 +16,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>구직자 상세 정보</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css" />
-  <link rel="stylesheet" href="../css/admin/user_detail.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/user_detail.css" />
   <script>
     const defaultOpenMenuId = "userMenu";
   </script>
 
 </head>
 <body>
-<jsp:include page="/admin/admin_header.jsp" />
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-  <jsp:include page="/admin/menutap.jsp" />
+  <jsp:include page="menutap.jsp" />
   <div class="content">
     <div class="profile-banner">
       <img class="profile-image" src="${contextPath}/img/${freelancer.profileImg}" alt="프로필 이미지"/>

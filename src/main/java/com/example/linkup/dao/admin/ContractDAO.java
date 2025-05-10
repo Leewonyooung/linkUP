@@ -4,10 +4,12 @@ import com.example.linkup.dto.AdminPrepareSettle;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.example.linkup.util.SingleTonSession;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class ContractDAO implements IContractDAO{
 
     private final SqlSessionFactory sqlSession = SingleTonSession.getInstance();

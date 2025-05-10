@@ -3,9 +3,11 @@ package com.example.linkup.dao.freelancer;
 import com.example.linkup.dto.Career;
 import org.apache.ibatis.session.SqlSession;
 import com.example.linkup.util.MybatisSqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CareerDAO implements ICareerDAO{
     private SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 

@@ -5,24 +5,21 @@
 <html lang="ko">
 
 <head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
     <meta charset="UTF-8">
     <title>프로젝트 정산</title>
-    <link rel="stylesheet" href="../css/admin/admin_header.css">
-    <link rel="stylesheet" href="../css/admin/settlement.css">
+    <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
+    <link rel="stylesheet" href="${contextPath}/css/admin/settlement.css">
     <script>
         const defaultOpenMenuId = "projectMenu";
     </script>
-    <script src="../js/include_common.js"></script>
+    <script src="${contextPath}/js/include_common.js"></script>
 </head>
 
 <body>
-<div id="header-include"></div>
-
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-    <div id="menu-include"></div>
-
-    <div></div>
-
+    <jsp:include page="menutap.jsp" />
     <div class="content">
         <div class="card filter-box">
             <h1>이번달 프로젝트 정산</h1>

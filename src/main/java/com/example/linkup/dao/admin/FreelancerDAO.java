@@ -4,9 +4,11 @@ import com.example.linkup.dto.AdminFreelancer;
 import com.example.linkup.dto.Freelancer;
 import org.apache.ibatis.session.SqlSession;
 import com.example.linkup.util.MybatisSqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class FreelancerDAO implements IFreelancerDAO{
     SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 

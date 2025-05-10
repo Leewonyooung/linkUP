@@ -1,49 +1,44 @@
 package com.example.linkup.controller.admin;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.example.linkup.dao.admin.ContractDAO;
-import com.example.linkup.dao.admin.IContractDAO;
 import com.example.linkup.service.admin.ContractService;
 import com.example.linkup.service.admin.IContractService;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/admin/update-client-status")
-public class UpdateClientStatusController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@RestController
+@RequestMapping("/admin")
+public class UpdateClientStatusController {
+
+    private final IContractService contractService;
 
     public UpdateClientStatusController() {
-        super();
+        this.contractService = new ContractService(new ContractDAO());
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        req.setCharacterEncoding("UTF-8");
-        res.setContentType("application/json; charset=UTF-8");
-
-        Gson gson = new Gson();
-        BufferedReader reader = req.getReader();
-        List<Map<String, String>> updates = gson.fromJson(reader, new TypeToken<List<Map<String, String>>>() {}.getType());
-
-        IContractDAO contractDAO = new ContractDAO();
-        IContractService contractService = new ContractService(contractDAO);
+    @PutMapping("/update-client-status")
+    public ResponseEntity<String> updateClientStatuses(@RequestBody String jsonBody) {
         try {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<Map<String, String>>>() {}.getType();
+            List<Map<String, String>> updates = gson.fromJson(jsonBody, listType);
+
             for (Map<String, String> update : updates) {
                 int projectId = Integer.parseInt(update.get("projectId"));
                 String status = update.get("status");
                 contractService.updateClientStatus(projectId, status);
             }
-            res.setStatus(HttpServletResponse.SC_OK);
+
+            return ResponseEntity.ok("업데이트 완료");
         } catch (Exception e) {
             e.printStackTrace();
-            res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "DB 업데이트 중 오류 발생");
+            return ResponseEntity.status(500).body("DB 업데이트 중 오류 발생");
         }
     }
 }

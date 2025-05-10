@@ -3,16 +3,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8">
   <title>사용자 정보 관리</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css">
-  <link rel="stylesheet" href="../css/admin/user_info.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/user_info.css">
 </head>
 <body>
 
-<div id="header-include"></div>
+<jsp:include page="admin_header.jsp" />
 <div class="layout">
-  <div id="menu-include"></div>
+  <jsp:include page="menutap.jsp" />
   <div class="content">
     <div class="card">
       <h1>사용자 목록</h1>

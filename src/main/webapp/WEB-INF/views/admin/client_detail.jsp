@@ -11,30 +11,25 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8" />
   <title>회사 상세 정보</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css" />
-  <link rel="stylesheet" href="../css/admin/company_detail.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/company_detail.css" />
   <script>
     const defaultOpenMenuId = "projectMenu";
   </script>
 </head>
 <body>
 <!-- ✅ 헤더/사이드 메뉴 include -->
-<jsp:include page="/admin/admin_header.jsp" />
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-  <jsp:include page="/admin/menutap.jsp" />
+  <jsp:include page="menutap.jsp" />
 
   <div class="content">
     <div class="page-header">
       <h2>${client.name}</h2>
-<%--      <a href="<c:url value='/admin/client-list' />?companyid=${client.id}" class="back-link">--%>
-<%--        ${client.name}의 프로젝트 목록 보기 →--%>
-<%--      </a>--%>
-
     </div>
-
-    <!-- ✅ 기본 정보 -->
     <div class="card">
       <h3>기본 정보</h3>
       <div class="info-grid">
@@ -54,7 +49,7 @@
         <li><strong>본사 주소:</strong> ${client.companyAddress}</li>
         <li><strong>대표 전화번호:</strong> ${client.companyPhoneNumber}</li>
         <li><strong>대표 이메일:</strong> ${client.email}</li>
-        <li><strong>FAX:</strong> ${client.companyFaxNum}</li> <!-- 추후 company.fax 추가 가능 -->
+        <li><strong>FAX:</strong> ${client.companyFaxNum}</li>
       </ul>
     </div>
   </div>

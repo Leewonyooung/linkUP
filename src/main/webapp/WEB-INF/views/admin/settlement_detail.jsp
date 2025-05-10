@@ -7,21 +7,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8">
   <title>프로젝트 정산하기</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css">
-  <link rel="stylesheet" href="../css/admin/settlement_detail.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/settlement_detail.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="../js/include_common.js"></script>
-  <script src="../js/settlement_modal.js"></script>
+  <script src="${contextPath}/js/include_common.js"></script>
+  <script src="${contextPath}/js/settlement_modal.js"></script>
   <script>
     const defaultOpenMenuId = "projectMenu";
   </script>
 </head>
 <body>
-<div id="header-include"></div>
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-  <div id="menu-include"></div>
+  <jsp:include page="menutap.jsp" />
   <div class="content">
     <h2 class="page-title">프로젝트 정산하기</h2>
 

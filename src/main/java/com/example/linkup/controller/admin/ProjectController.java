@@ -7,73 +7,84 @@
  */
 package com.example.linkup.controller.admin;
 
-import com.example.linkup.dao.admin.ProjectDAO;
 import com.example.linkup.dto.AdminProject;
 import com.example.linkup.dto.AdminProjectDetail;
 import com.example.linkup.service.admin.IProjectService;
-import com.example.linkup.service.admin.ProjectService;
 import com.example.linkup.util.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
-@WebServlet("/admin/project")
-public class ProjectController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+@RequestMapping("/admin/project")
+public class ProjectController {
 
-    public ProjectController() {
-        super();
+    private final IProjectService projectService;
+
+    @Autowired
+    public ProjectController(IProjectService projectService) {
+        this.projectService = projectService;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        request.setAttribute("now", new java.util.Date());
-        String keyword = request.getParameter("keyword");
+    /**
+     * ✅ 프로젝트 목록 조회
+     * URL: /admin/project?page=1&keyword=...&settleStatus=...&startDate=...&endDate=...
+     */
+    @GetMapping
+    public String listProjects(
+            @RequestParam(value = "page", defaultValue = "1") int curPage,
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "settleStatus", required = false) String settleStatus,
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            Model model
+    ) {
+        model.addAttribute("now", new Date());
+
+        // 빈 문자열 처리
         keyword = (keyword != null && keyword.trim().isEmpty()) ? null : keyword;
-        String settleStatus = request.getParameter("settleStatus");
         settleStatus = (settleStatus != null && settleStatus.trim().isEmpty()) ? null : settleStatus;
-        String startDate = request.getParameter("startDate");
         startDate = (startDate != null && startDate.trim().isEmpty()) ? null : startDate;
-        String endDate = request.getParameter("endDate");
         endDate = (endDate != null && endDate.trim().isEmpty()) ? null : endDate;
-        ProjectDAO projectDAO = new ProjectDAO();
-        IProjectService projectService = new ProjectService(projectDAO);
-        String idParam = request.getParameter("id");
-        String pageParam = request.getParameter("page");
-        int curPage = (pageParam == null || pageParam.isEmpty()) ? 1 : Integer.parseInt(pageParam);
+
         int perPage = 8;
         int offset = (curPage - 1) * perPage;
 
         try {
-            // 상세 페이지 : /admin/project_list.jsp
-            // url: http://localhost:8085/linkup/admin/project?id=1
-            if (idParam != null) {
-                // ✅ 프로젝트 상세 페이지 처리
-                AdminProjectDetail detail = projectService.selectProjectDetail(Integer.parseInt(idParam));
-                request.setAttribute("project", detail);
-                request.getRequestDispatcher("/admin/project_detail.jsp").forward(request, response);
-            // 프로젝트 전체 목록 페이지 : /admin/project_list.jsp
-            // url: http://localhost:8085/linkup/admin/project
-            }else {
-                List<AdminProject> projectList = projectService.getPagedProjects(offset, perPage, keyword, settleStatus, startDate, endDate);
-                int totalCount = projectService.getTotalProjectCount(keyword, settleStatus, startDate, endDate);
-                PageInfo pageInfo = projectService.calculatePageInfo(curPage, perPage, totalCount);
+            List<AdminProject> projectList = projectService.getPagedProjects(offset, perPage, keyword, settleStatus, startDate, endDate);
+            int totalCount = projectService.getTotalProjectCount(keyword, settleStatus, startDate, endDate);
+            PageInfo pageInfo = projectService.calculatePageInfo(curPage, perPage, totalCount);
 
-                request.setAttribute("totalCount", totalCount);
-                request.setAttribute("projectList", projectList);
-                request.setAttribute("pageInfo", pageInfo);
+            model.addAttribute("projectList", projectList);
+            model.addAttribute("pageInfo", pageInfo);
+            model.addAttribute("totalCount", totalCount);
 
-                request.getRequestDispatcher("/admin/project_list.jsp").forward(request, response);
-            }
-
+            return "admin/project_list";
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "서버 내부 오류 발생");
+            model.addAttribute("errorMessage", "프로젝트 목록을 가져오지 못했습니다.");
+            return "error/500";
         }
+    }
 
+    /**
+     * ✅ 프로젝트 상세 조회
+     * URL: /admin/project/detail?id=1
+     */
+    @GetMapping("/detail")
+    public String viewProjectDetail(@RequestParam("id") int id, Model model) {
+        try {
+            AdminProjectDetail detail = projectService.selectProjectDetail(id);
+            model.addAttribute("project", detail);
+            return "admin/project_detail";
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("errorMessage", "프로젝트 상세 정보를 가져오지 못했습니다.");
+            return "error/500";
+        }
     }
 }

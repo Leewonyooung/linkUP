@@ -5,14 +5,18 @@ import com.example.linkup.dao.freelancer.CareerDAO;
 import com.example.linkup.dto.AdminFreelancer;
 import com.example.linkup.dto.Career;
 import com.example.linkup.dto.Freelancer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FreelancerService implements IFreelancerService {
 
     private final IFreelancerDAO freelancerDAO;
     CareerDAO careerDAO = new CareerDAO();
 
+    @Autowired
     public FreelancerService(IFreelancerDAO freelancerDAO) {
         this.freelancerDAO = freelancerDAO;
     }

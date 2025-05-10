@@ -4,6 +4,8 @@ import com.example.linkup.dao.admin.IContractDAO;
 import com.example.linkup.dao.admin.IProjectDAO;
 import com.example.linkup.dao.admin.ISettlementDAO;
 import com.example.linkup.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -11,12 +13,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class SettlementService implements ISettlementService {
 
     private final IContractDAO contractDAO;
     private final IProjectDAO projectDAO;
     private final ISettlementDAO settlementDAO;
 
+    @Autowired
     public SettlementService(IContractDAO contractDAO, IProjectDAO projectDAO, ISettlementDAO settlementDAO) {
         this.contractDAO = contractDAO;
         this.projectDAO = projectDAO;

@@ -6,11 +6,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8">
   <title>프로젝트 조회</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css">
-  <link rel="stylesheet" href="../css/admin/admin_project_list.css">
-  <link rel="stylesheet" href="../css/table_common.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_project_list.css">
+  <link rel="stylesheet" href="${contextPath}/css/table_common.css">
   <style>
     table th:nth-child(3),
     table td:nth-child(3) {
@@ -30,9 +31,9 @@
 </head>
 
 <body>
-<div id="header-include"></div>
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-  <div id="menu-include"></div>
+  <jsp:include page="menutap.jsp" />
   <div class="content">
     <div class="card" style="min-height: calc(100vh - 100px);">
       <h1>프로젝트 조회</h1>
@@ -156,6 +157,6 @@
   </div>
 </div>
 
-<script src="../js/include_common.js"></script>
+<script src="${contextPath}/js/include_common.js"></script>
 </body>
 </html>

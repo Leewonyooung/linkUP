@@ -4,24 +4,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
   <meta charset="UTF-8">
   <title>문의사항 관리</title>
-  <link rel="stylesheet" href="../css/admin/admin_header.css" />
-  <link rel="stylesheet" href="../css/admin/qna_manage.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
+  <link rel="stylesheet" href="${contextPath}/css/admin/qna_manage.css" />
   <script>
     const defaultOpenMenuId = "qaMenu";
   </script>
-  <script src="../js/include_common.js"></script>
+  <script src="${contextPath}/js/include_common.js"></script>
 </head>
 <body>
-<div id="header-include"></div>
+<jsp:include page="admin_header.jsp" />
 <div class="layout-wrapper">
-  <div id="menu-include"></div>
+  <jsp:include page="menutap.jsp" />
   <div class="content">
     <h2 class="page-title">문의사항 관리</h2>
-
-    <!-- ✅ 통계 카드 -->
-    <!-- ✅ 통계 카드 -->
     <div class="card-stats-row">
       <div class="stat-card">
         <div class="stat-label">전체 문의</div>

@@ -4,44 +4,38 @@
  * POST : //
  */
 package com.example.linkup.controller.admin;
+/**
+ * ClientController.java
+ * GET : 업체(구인자)의 상세 정보를 렌더링
+ */
 
-import com.example.linkup.dao.admin.ClientDAO;
-import com.example.linkup.dao.admin.IClientDAO;
 import com.example.linkup.dto.ClientUserDetail;
-import com.example.linkup.service.admin.ClientService;
 import com.example.linkup.service.admin.IClientService;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.WebServlet;
-import java.io.IOException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@WebServlet("/admin/client")
-public class ClientController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@Controller
+public class ClientController {
 
-    public ClientController() {
-        super();
+    private final IClientService clientService;
+
+    @Autowired
+    public ClientController(IClientService clientService) {
+        this.clientService = clientService;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        IClientDAO clientDAO = new ClientDAO();
-        IClientService clientService = new ClientService(clientDAO);
-
-        try{
-            String clientId = request.getParameter("clientid");
+    @GetMapping("/admin/client")
+    public String showClientDetail(@RequestParam("clientid") String clientId, Model model) {
+        try {
             ClientUserDetail client = clientService.selectClientById(clientId);
-            request.setAttribute("client", client);
+            model.addAttribute("client", client);
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("error", "Client not found");
+            model.addAttribute("error", "Client not found");
         }
-
-        request.getRequestDispatcher("/admin/client_detail.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        return "admin/client_detail"; // => /WEB-INF/views/admin/client_detail.jsp
     }
 }

@@ -10,10 +10,6 @@
   *  이번달 진행중인 프로젝트의 정보 : List(AdminProject) / ongoingProjects
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.*" %>
-<%@ page import="com.example.linkup.dto.DashboardProject" %>
-<%@ page import="java.text.NumberFormat" %>
-<%@ page import="com.example.linkup.dto.AdminProject" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -34,19 +30,15 @@
     <div class="cards">
       <div class="card">
         <div class="card-title">이번달 총 거래액</div>
-<%--        <div class="card-value">₩ <%= formattedPayment %></div>--%>
         <div class="card-value"><fmt:formatNumber value="${totalPayment}" pattern="#,##0원"/></div>
-<%--        <td><fmt:formatNumber value="${h.pay}" pattern="#,##0원"/></td>--%>
       </div>
       <div class="card">
         <div class="card-title">진행중인 프로젝트</div>
         <div class="card-value"><%= request.getAttribute("totalProjectCount") %></div>
-<%--        <div class="card-sub">전월 대비 8건 증가</div>--%>
       </div>
       <div class="card">
         <div class="card-title">정산된 수수료</div>
         <div class="card-value"><fmt:formatNumber value="${totalPaymentFee}" pattern="#,##0원"/></div>
-<%--        <div class="card-value">₩ <%= formattedPaymentFee %></div>--%>
       </div>
     </div>
 
