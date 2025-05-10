@@ -153,7 +153,7 @@
         DELETE FROM qna WHERE qna_id = #{qnaId} AND user_id = #{userId}
     </delete>
 
-    <select id="selectQnaById" parameterType="int" resultType="dto.QnA">
+    <select id="selectQnaById" parameterType="int" resultType="qnA">
         SELECT * FROM qna WHERE qna_id = #{qnaId}
     </select>
 

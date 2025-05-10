@@ -8,7 +8,7 @@
                values (#{id}, #{apply_id},#{project_pay_id},#{project_id},#{client_id},#{settle_day},#{start_date},#{end_date},#{pname},#{fee},#{pmanager},#{total_pay},#{status},#{fphone},#{account})
     </insert>
 
-    <select id="selectInfoForSettleById" parameterType="string" resultType="dto.AdminPrepareSettle">
+    <select id="selectInfoForSettleById" parameterType="string" resultType="AdminPrepareSettle">
         SELECT
             c.id,
             c.client_id,

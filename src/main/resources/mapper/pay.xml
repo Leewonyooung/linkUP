@@ -8,7 +8,7 @@
 <!--        values (#{project_fee_id}, #{project_id},#{lv_id},#{project_fee})-->
 <!--    </insert>-->
 
-    <insert id="insertPay" parameterType="dto.Pay" useGeneratedKeys="true" keyProperty="projectPayId">
+    <insert id="insertPay" parameterType="pay" useGeneratedKeys="true" keyProperty="projectPayId">
         INSERT INTO pay (
             project_id, lv_id, sub_category_id, work, people, project_fee
         ) VALUES (
@@ -35,7 +35,7 @@
     </select>
 
 
-    <select id="getPaysByProjectId" parameterType="int" resultType="dto.Pay">
+    <select id="getPaysByProjectId" parameterType="int" resultType="pay">
         SELECT * FROM pay WHERE project_id = #{projectId}
     </select>
 
@@ -44,7 +44,7 @@
     </delete>
 
 
-    <select id="selectPayByProjectPayId" parameterType="Integer" resultType="dto.Pay">
+    <select id="selectPayByProjectPayId" parameterType="Integer" resultType="pay">
         select * from pay where project_pay_id = #{projectPayId}
     </select>
 </mapper>

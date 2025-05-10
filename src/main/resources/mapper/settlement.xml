@@ -4,7 +4,7 @@
 
 <mapper namespace="mapper.settlement">
     <!-- 4. 정산 내역 테이블 등록 -->
-    <insert id="insertSettlement" parameterType="dto.Settlement" useGeneratedKeys="true">
+    <insert id="insertSettlement" parameterType="settlement" useGeneratedKeys="true">
         INSERT INTO settlement (
             slist_id,
             category_id,
@@ -51,7 +51,7 @@
           AND name = #{freelancerName}
     </select>
 
-    <select id="selectSettlementHistoryDetail" parameterType="int" resultType="dto.AdminSettleHistory">
+    <select id="selectSettlementHistoryDetail" parameterType="int" resultType="AdminSettleHistory">
         SELECT
             s.slist_id,
             sl.project_id,
@@ -75,7 +75,7 @@
         ORDER BY u.name
     </select>
 
-    <select id="selectSettledFreelancers" parameterType="int" resultType="dto.SettledInfoDTO">
+    <select id="selectSettledFreelancers" parameterType="int" resultType="SettledInfoDTO">
     <![CDATA[
         SELECT
             sl.project_id,
@@ -95,7 +95,7 @@
 </select>
 
 
-    <select id="selectWaitingFreelancers" parameterType="map" resultType="dto.SettledInfoDTO">
+    <select id="selectWaitingFreelancers" parameterType="map" resultType="SettledInfoDTO">
     <![CDATA[
         SELECT
             sl.project_id,
@@ -187,7 +187,7 @@
     </select>
 
     <!-- 완료된 정산 데이터 가져오기 -->
-    <select id="selectSettledFreelancersByMonth" parameterType="map" resultType="dto.SettledInfoDTO">
+    <select id="selectSettledFreelancersByMonth" parameterType="map" resultType="SettledInfoDTO">
         SELECT
             s.name AS freelancerName,
             p.category_name AS position,
@@ -205,7 +205,7 @@
     </select>
 
     <!-- 대기중인 정산 대상자 가져오기 -->
-    <select id="selectWaitingFreelancersByMonth" parameterType="map" resultType="dto.SettledInfoDTO">
+    <select id="selectWaitingFreelancersByMonth" parameterType="map" resultType="SettledInfoDTO">
         SELECT
             u.name AS freelancerName,
             p.category_name AS position,
@@ -231,7 +231,7 @@
         )
     </select>
 
-    <select id="selectSettlementHistory" parameterType="map" resultType="dto.SettlementDetailDTO">
+    <select id="selectSettlementHistory" parameterType="map" resultType="SettlementDetailDTO">
         SELECT
         sl.cnt AS cnt,
         s.ammount AS settle_ammount,
@@ -246,7 +246,7 @@
         ORDER BY sl.cnt
     </select>
 
-    <select id="selectSettlementHistoryDetailByClientId" resultType="dto.ClientProjectSummary">
+    <select id="selectSettlementHistoryDetailByClientId" resultType="ClientProjectSummary">
         SELECT
             p.project_id,
             p.project_name,

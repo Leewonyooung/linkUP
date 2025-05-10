@@ -20,7 +20,7 @@
         WHERE u.name LIKE #{keyword} OR freelancer_id LIKE #{keyword} OR email LIKE #{keyword}
     </select>
 
-    <select id="selectFreelancerById" resultType="dto.AdminFreelancer" parameterType="String">
+    <select id="selectFreelancerById" resultType="AdminFreelancer" parameterType="String">
         SELECT
             u.user_id AS freelancer_id,
             u.name,

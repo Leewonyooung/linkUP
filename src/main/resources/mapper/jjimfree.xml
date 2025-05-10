@@ -20,7 +20,7 @@
     </select>
 
     <!-- 페이징 처리 없이 ALL Select (토글 기능) -->
-    <select id="selectAllFavoritesByClientId" parameterType="String" resultType="dto.ClientFavorites">
+    <select id="selectAllFavoritesByClientId" parameterType="String" resultType="jjimfree">
         SELECT * FROM jjimFree WHERE client_id = #{clientId} order by jjim_id;
     </select>
 

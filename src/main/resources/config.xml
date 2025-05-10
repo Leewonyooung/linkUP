@@ -8,36 +8,49 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="dto.ClientUserDetail" alias="adminuserdetail"/>
-        <typeAlias type="dto.User" alias="user"/>
-        <typeAlias type="dto.Project" alias="project"/>
-        <typeAlias type="dto.Apply" alias="apply"/>
-        <typeAlias type="dto.Category" alias="category"/>
-        <typeAlias type="dto.Career" alias="career"/>
-        <typeAlias type="dto.Client" alias="client"/>
-        <typeAlias type="dto.ClientProfile" alias="clientProfile" />
-        <typeAlias type="dto.ProjectMgt" alias="projectMgt" />
-        <typeAlias type="dto.ProjectPay" alias="projectPay" />
-        <typeAlias type="dto.ClientCandidateMgt" alias="clientCandidateMgt" />
+        <typeAlias type="com.example.linkup.dto.ClientUserDetail" alias="adminuserdetail"/>
+        <typeAlias type="com.example.linkup.dto.User" alias="user"/>
+        <typeAlias type="com.example.linkup.dto.Project" alias="project"/>
+        <typeAlias type="com.example.linkup.dto.Apply" alias="apply"/>
+        <typeAlias type="com.example.linkup.dto.Category" alias="category"/>
+        <typeAlias type="com.example.linkup.dto.Career" alias="career"/>
+        <typeAlias type="com.example.linkup.dto.Client" alias="client"/>
+        <typeAlias type="com.example.linkup.dto.ClientProfile" alias="clientProfile" />
+        <typeAlias type="com.example.linkup.dto.ProjectMgt" alias="projectMgt" />
+        <typeAlias type="com.example.linkup.dto.ProjectPay" alias="projectPay" />
+        <typeAlias type="com.example.linkup.dto.ClientCandidateMgt" alias="clientCandidateMgt" />
+        <typeAlias type="com.example.linkup.dto.ClientApply" alias="clientapply" />
+        <typeAlias type="com.example.linkup.dto.FreelancerProject" alias="freelancerproject" />
+        <typeAlias type="com.example.linkup.dto.SettlementListForF" alias="slistforf" />
+        <typeAlias type="com.example.linkup.dto.ProjectDetail" alias="projectdetail" />
+        <typeAlias type="com.example.linkup.dto.AdminSettleTarget" alias="AdminSettleTarget" />
+        <typeAlias type="com.example.linkup.dto.AdminSettleHistory" alias="AdminSettleHistory" />
+        <typeAlias type="com.example.linkup.dto.ClientSettleTarget" alias="ClientSettleTarget" />
+        <typeAlias type="com.example.linkup.dto.SettlementDetailDTO" alias="SettlementDetailDTO" />
+        <typeAlias type="com.example.linkup.dto.ClientProjectSummary" alias="ClientProjectSummary" />
+        <typeAlias type="com.example.linkup.dto.SettledInfoDTO" alias="SettledInfoDTO" />
+        <typeAlias type="com.example.linkup.dto.AdminPrepareSettle" alias="AdminPrepareSettle" />
+        <typeAlias type="com.example.linkup.dto.AdminSettleHistorySummary" alias="AdminSettleHistorySummary" />
+        <typeAlias type="com.example.linkup.dto.AdminFreelancer" alias="AdminFreelancer" />
+        <typeAlias type="com.example.linkup.dto.ProjectPay" alias="ProjectPay" />
 
-        <typeAlias type="dto.Contract" alias="contract"/>
-        <typeAlias type="dto.Freelancer" alias="freelancer"/>
-        <typeAlias type="dto.ClientFavorites" alias="jjimfree"/>
-        <typeAlias type="dto.JjimProj" alias="jjimProj"/>
-        <typeAlias type="dto.Level" alias="lv"/>
-        <typeAlias type="dto.Pay" alias="pay"/>
-        <typeAlias type="dto.Portfolio" alias="portfolio"/>
-        <typeAlias type="dto.QnA" alias="qna"/>
+        <typeAlias type="com.example.linkup.dto.Contract" alias="contract"/>
+        <typeAlias type="com.example.linkup.dto.Freelancer" alias="freelancer"/>
+        <typeAlias type="com.example.linkup.dto.ClientFavorites" alias="jjimfree"/>
+        <typeAlias type="com.example.linkup.dto.JjimProj" alias="jjimProj"/>
+        <typeAlias type="com.example.linkup.dto.Level" alias="lv"/>
+        <typeAlias type="com.example.linkup.dto.Pay" alias="pay"/>
+        <typeAlias type="com.example.linkup.dto.Portfolio" alias="portfolio"/>
+        <typeAlias type="com.example.linkup.dto.QnA" alias="qna"/>
         <!--<typeAlias type="dto.Review" alias="review"/>-->
-        <typeAlias type="dto.Settlelist" alias="settlelist"/>
-        <typeAlias type="dto.Settlement" alias="settlement"/>
-        <typeAlias type="dto.SubCategory" alias="subCategory"/>
-        <typeAlias type="dto.DashboardProject" alias="dproject"/>
-        <typeAlias type="dto.ClientUserInfo" alias="adminclient"/>
-        <typeAlias type="dto.Project" alias="project"/>
-        <typeAlias type="dto.DashboardProject" alias="dashboardProject"/>
-        <typeAlias type="dto.Notice" alias="notice"/>
-        <typeAlias type="dto.News" alias="news"/>
+        <typeAlias type="com.example.linkup.dto.Settlelist" alias="settlelist"/>
+        <typeAlias type="com.example.linkup.dto.Settlement" alias="settlement"/>
+        <typeAlias type="com.example.linkup.dto.SubCategory" alias="subCategory"/>
+        <typeAlias type="com.example.linkup.dto.DashboardProject" alias="dproject"/>
+        <typeAlias type="com.example.linkup.dto.ClientUserInfo" alias="adminclient"/>
+        <typeAlias type="com.example.linkup.dto.Project" alias="project"/>
+        <typeAlias type="com.example.linkup.dto.Notice" alias="notice"/>
+        <typeAlias type="com.example.linkup.dto.News" alias="news"/>
     </typeAliases>
 
     <environments default="deveLopment">
@@ -61,7 +74,6 @@
         <mapper resource="mapper/project.xml"/>
         <mapper resource="mapper/category.xml"/>
         <mapper resource="mapper/pay.xml"/>
-        <!--        <mapper resource="mapper/ammount.xml"/>-->
        <mapper resource="mapper/apply.xml"/>
         <mapper resource="mapper/adminclient.xml"/>
         <mapper resource="mapper/adminproject.xml"/>

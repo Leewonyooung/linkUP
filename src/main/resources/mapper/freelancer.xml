@@ -137,7 +137,7 @@
           AND p.end_date > CURDATE()
         ]]>
     </select>
-    <select id="selectOngoingProjectsByFreelancerId" resultType="dto.FreelancerProject" parameterType="Map">
+    <select id="selectOngoingProjectsByFreelancerId" resultType="freelancerproject" parameterType="Map">
         <![CDATA[
         SELECT
         p.project_id AS projectId,
@@ -173,7 +173,7 @@
         LIMIT #{row}, 10
         ]]>
     </select>
-    <select id="selectOngoingProjectsForMyPage" resultType="dto.FreelancerProject" parameterType="String">
+    <select id="selectOngoingProjectsForMyPage" resultType="freelancerproject" parameterType="String">
         <![CDATA[
        SELECT
         p.project_id AS projectId,
@@ -217,7 +217,7 @@
         ]]>
     </select>
 
-    <select id="selectCompletedProjectsByFreelancerId" resultType="dto.FreelancerProject" parameterType="Map">
+    <select id="selectCompletedProjectsByFreelancerId" resultType="freelancerproject" parameterType="Map">
         <![CDATA[
         SELECT
             p.project_id AS projectId,
@@ -251,7 +251,7 @@
         LIMIT #{row}, 10
         ]]>
     </select>
-    <select id="selectSettlementListForMyPage" resultType="dto.SettlementListForF" parameterType="Map">
+    <select id="selectSettlementListForMyPage" resultType="slistforf" parameterType="Map">
         SELECT sm.settlement_id ,sm.pname as projectName, sl.project_id, sm.ammount, sm.settleday as settleDate, sm.status
         FROM settlement sm
                  JOIN settlelist sl ON sm.slist_id = sl.slist_id
@@ -260,18 +260,8 @@
         GROUP BY sl.project_id, sm.pname, sm.ammount, sm.settleday, sm.status
         ORDER BY sl.project_id, sm.settleday
     </select>
-<!--    <select id="selectSettlementListForMyPage" resultType="dto.SettlementListForF" parameterType="Map">
-        select pname as projectName, settleday as settleDate, ammount , status
-        from settlement
-        where category_id =
-              (
-              select project_pay_id
-               from contract
-               where freelancer_id = #{freelancerId} and project_id = #{projectId}
-              )
-    </select>-->
 
-    <select id="catalogFreelancersByCategory" parameterType="int" resultType="dto.Freelancer">
+    <select id="catalogFreelancersByCategory" parameterType="int" resultType="freelancer">
         SELECT
             f.freelancer_id,
             f.sub_category_id,
@@ -285,29 +275,8 @@
         WHERE f.sub_category_id = #{category}
     </select>
 
-<!--    <select id="searchFreelancersByCategoryAndKeyword" parameterType="map" resultType="dto.Freelancer">
-        SELECT
-            f.freelancer_id,
-            f.category,
-            f.skill,
-            f.desired_salary,
-            f.introduction,
-            u.nickname,
-            u.profile_img,
-            sc.sub_category_name,
-            c.category_id,
-            c.category_name,
-            COALESCE(AVG(r.star), 0) AS avg_star
-        FROM freelancer f
-                 LEFT JOIN user u ON f.freelancer_id = u.user_id
-        WHERE f.category = #{category}
-          AND (
-            f.introduction LIKE CONCAT('%', #{keyword}, '%')
-                OR u.nickname LIKE CONCAT('%', #{keyword}, '%')
-            )
-    </select>-->
 
-    <select id="searchFreelancersByCategoryAndKeyword" parameterType="map" resultType="dto.Freelancer">
+    <select id="searchFreelancersByCategoryAndKeyword" parameterType="map" resultType="freelancer">
         SELECT
         f.freelancer_id,
         f.skill,
@@ -339,7 +308,7 @@
         ORDER BY f.freelancer_id DESC
     </select>
 
-    <select id="catalogFreelancersBySubCategoryIds" parameterType="list" resultType="dto.Freelancer">
+    <select id="catalogFreelancersBySubCategoryIds" parameterType="list" resultType="freelancer">
         SELECT
         f.freelancer_id,
         f.sub_category_id,
@@ -365,7 +334,7 @@
         ORDER BY f.freelancer_id DESC
     </select>
 
-    <select id="findAllFreelancers" resultType="dto.Freelancer">
+    <select id="findAllFreelancers" resultType="freelancer">
         SELECT
             f.freelancer_id,
             f.sub_category_id,

@@ -11,7 +11,7 @@
         SELECT COUNT(*) FROM client WHERE client_id = #{id}
     </select>
 
-    <select id="searchCompanyByName" parameterType="String" resultType="dto.Client">
+    <select id="searchCompanyByName" parameterType="String" resultType="client">
         SELECT
             client_id,
             company_reg_no,
@@ -48,7 +48,7 @@
 
     <!--    구인자 마이페이지 프로필설정 수정-->
 <!--    update라 결과반환 하지 않으므로 resultType 없음 (몇행이 수정됐는지 정수만 DAO로 리턴됨)  -->
-    <update id="updateClientProfile" parameterType="dto.ClientProfile">
+    <update id="updateClientProfile" parameterType="clientProfile">
         UPDATE user u
         JOIN client c ON u.user_id = c.client_id
         SET

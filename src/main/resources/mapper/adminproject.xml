@@ -4,7 +4,7 @@
 
 <mapper namespace="mapper.aproject">
 
-    <select id="selectAllOngoingProject" resultType="dto.AdminProject">
+    <select id="selectAllOngoingProject" resultType="com.example.linkup.dto.AdminProject">
         SELECT
             p.project_id AS projectId,
             p.client_id AS clientId,
@@ -57,7 +57,7 @@
     </select>
 
 
-    <select id="selectProjectsForDashboard" resultType="dto.AdminProject">
+    <select id="selectProjectsForDashboard" resultType="com.example.linkup.dto.AdminProject">
     <![CDATA[
         SELECT
             ct.id as contract_id,
@@ -100,7 +100,7 @@
     </select>
 
 
-    <select id="selectProjectsForSettlement" parameterType="map" resultType="dto.AdminSettleProject">
+    <select id="selectProjectsForSettlement" parameterType="map" resultType="com.example.linkup.dto.AdminSettleProject">
 <![CDATA[
         SELECT
             p.project_id,
@@ -171,7 +171,7 @@
     </select>
 
 
-    <select id="selectPagedProjects" parameterType="map" resultType="dto.AdminProject">
+    <select id="selectPagedProjects" parameterType="map" resultType="com.example.linkup.dto.AdminProject">
         SELECT
         p.project_id AS projectId,
         p.client_id AS clientId,
@@ -244,7 +244,7 @@
     </select>
 
     <!-- 복합 결과 매핑 -->
-    <resultMap id="ProjectDetailMap" type="dto.AdminProjectDetail" >
+    <resultMap id="ProjectDetailMap" type="com.example.linkup.dto.AdminProjectDetail" >
         <id property="projectId" column="project_id"/>
         <result property="projectName" column="project_name"/>
         <result property="projectDescription" column="project_description"/>
@@ -255,7 +255,7 @@
         <result property="clientName" column="client_name"/>
         <result property="memail" column="memail"/>
         <!-- 참여자 리스트 매핑 -->
-        <collection property="participants" ofType="dto.ProjectParticipant">
+        <collection property="participants" ofType="com.example.linkup.dto.ProjectParticipant">
             <result property="participantName" column="participant_name"/>
             <result property="participantRole" column="participant_role"/>
             <result property="participantEmail" column="participant_email"/>

@@ -5,7 +5,7 @@
 <mapper namespace="mapper.project">
 
     <!-- ✅ 메인페이지용 - 카테고리명으로 조회 (JOIN 필요) -->
-    <select id="MainProjectsByCategory" resultType="dto.Project" parameterType="String">
+    <select id="MainProjectsByCategory" resultType="project" parameterType="String">
         SELECT
             p.project_id,
             p.project_name,
@@ -34,7 +34,7 @@
     </select>
 
     <!-- ✅ 카탈로그 화면: 카테고리 조건으로만 조회 -->
-    <select id="catalogProjectByCategory" parameterType="String" resultType="dto.Project">
+    <select id="catalogProjectByCategory" parameterType="String" resultType="project">
         SELECT
             p.project_id,
             p.project_name,
@@ -60,7 +60,7 @@
     </select>
 
     <!-- ✅ 키워드 포함 검색 (카테고리, 서브카테고리 선택 가능) -->
-    <select id="searchProjectsByCategoryAndKeyword" parameterType="map" resultType="dto.Project">
+    <select id="searchProjectsByCategoryAndKeyword" parameterType="map" resultType="project">
         SELECT
         p.project_id,
         p.project_name,
@@ -98,7 +98,7 @@
     </select>
 
     <!-- ✅ 조건 검색 (서브카테고리만 선택 가능) -->
-    <select id="catalogProjectByConditions" parameterType="map" resultType="dto.Project">
+    <select id="catalogProjectByConditions" parameterType="map" resultType="project">
         SELECT
         p.project_id,
         p.project_name,
@@ -128,7 +128,7 @@
         GROUP BY p.project_id
         ORDER BY p.created_date DESC
     </select>
-    <insert id="insertProject" parameterType="dto.Project" useGeneratedKeys="true" keyProperty="projectId">
+    <insert id="insertProject" parameterType="project" useGeneratedKeys="true" keyProperty="projectId">
         INSERT INTO project (
             client_id, advertisement_title, project_name, job_position, thumbnail, working_method, working_hours,
             duration, working_environment, req_skills, wanted_skills, project_description, job_details,
@@ -143,7 +143,7 @@
     </insert>
 
 
-    <select id="selectProjectById" parameterType="int" resultType="dto.ProjectDetail">
+    <select id="selectProjectById" parameterType="int" resultType="projectdetail">
         SELECT
             p.project_id,
             u.nickname AS client_id,
@@ -177,7 +177,7 @@
     </select>
 
 <!--    수정할 프로젝트 조회-->
-    <select id="selectProjectFixById" parameterType="int" resultType="dto.Project">
+    <select id="selectProjectFixById" parameterType="int" resultType="project">
         SELECT
             project_id,
             client_id,
@@ -205,7 +205,7 @@
 
 
 <!--    프로젝트 수정-->
-    <update id="updateProject" parameterType="dto.Project">
+    <update id="updateProject" parameterType="project">
         UPDATE project
         SET
             advertisement_title = #{advertisementTitle},
@@ -233,123 +233,4 @@
         select * from project where project_id = #{projectId}
     </select>
 
-
 </mapper>
-
-        <!--<?xml version="1.0" encoding="UTF-8" standalone="no"?>-->
-<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"-->
-<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
-
-<!--<mapper namespace="mapper.project">-->
-<!--&lt;!&ndash;    <insert id="" parameterType="">-->
-<!--        insert ammount ()-->
-<!--        values (#{}, #{},#{},#{})-->
-<!--    </insert>-->
-
-<!--    <select id="selectAllOngoingProjects" resultType="dto.Project">-->
-<!--        SELECT *-->
-<!--        FROM project-->
-<!--        WHERE status = '진행중'-->
-<!--    </select>&ndash;&gt;-->
-
-<!--    <select id="MainProjectsByCategory" resultType="dto.Project" parameterType="String">-->
-<!--        SELECT-->
-<!--            p.project_name,-->
-<!--            p.client_id,-->
-<!--            p.category,-->
-<!--            p.advertisement_title,-->
-<!--            COALESCE(AVG(r.star), 0) AS avg_star,-->
-<!--            u.profile_img &#45;&#45; profile_img 추가-->
-
-<!--        FROM project p-->
-<!--                 LEFT JOIN review r ON p.client_id = r.r_user_id-->
-<!--                 LEFT JOIN user u ON p.client_id = u.user_id &#45;&#45; user 테이블 조인 추가-->
-
-<!--        WHERE p.category = #{category}-->
-
-<!--        GROUP BY p.project_id-->
-
-<!--        ORDER BY RAND()-->
-<!--            LIMIT 3-->
-<!--    </select>-->
-
-<!--    <select id="catalogProjectByCategory" parameterType="String" resultType="dto.Project">-->
-<!--        SELECT-->
-<!--            p.project_id,-->
-<!--            p.client_id,-->
-<!--            p.category,-->
-<!--            p.advertisement_title,-->
-<!--            p.project_name,-->
-<!--            p.thumbnail,-->
-<!--            p.duration,-->
-<!--            p.settle_day,-->
-<!--            p.manager,-->
-<!--            u.profile_img,-->
-<!--            COALESCE(AVG(r.star), 0) AS avg_star  &lt;!&ndash; ⭐ 별점 평균 추가 &ndash;&gt;-->
-<!--        FROM project p-->
-<!--                 LEFT JOIN user u ON p.client_id = u.user_id-->
-<!--                 LEFT JOIN review r ON p.client_id = r.r_user_id  &lt;!&ndash; 리뷰 테이블 조인 &ndash;&gt;-->
-<!--        WHERE p.category = #{category}-->
-<!--        GROUP BY p.project_id-->
-<!--        ORDER BY p.created_date DESC-->
-<!--    </select>-->
-<!--    <select id="searchProjectsByCategoryAndKeyword" parameterType="map" resultType="dto.Project">-->
-<!--        SELECT-->
-<!--        p.project_id,-->
-<!--        p.client_id,-->
-<!--        p.category,-->
-<!--        p.sub_category AS subCategory,-->
-<!--        p.advertisement_title,-->
-<!--        p.project_name,-->
-<!--        p.thumbnail,-->
-<!--        p.duration,-->
-<!--        p.settle_day,-->
-<!--        p.manager,-->
-<!--        u.profile_img,-->
-<!--        COALESCE(AVG(r.star), 0) AS avg_star-->
-<!--        FROM project p-->
-<!--        LEFT JOIN user u ON p.client_id = u.user_id-->
-<!--        LEFT JOIN review r ON p.client_id = r.r_user_id-->
-<!--        WHERE 1=1-->
-<!--        <if test="category != null and category != '' and category != '전체'">-->
-<!--            AND p.category = #{category}-->
-<!--        </if>-->
-<!--        <if test="subCategory != null and subCategory != ''">-->
-<!--            AND p.sub_category = #{subCategory}-->
-<!--        </if>-->
-<!--        <if test="keyword != null and keyword != ''">-->
-<!--            AND (-->
-<!--            p.advertisement_title LIKE CONCAT('%', #{keyword}, '%')-->
-<!--            OR p.manager LIKE CONCAT('%', #{keyword}, '%')-->
-<!--            )-->
-<!--        </if>-->
-<!--        GROUP BY p.project_id-->
-<!--        ORDER BY p.created_date DESC-->
-<!--    </select>-->
-<!--    &lt;!&ndash; ✅ 카테고리 + 서브카테고리 필터링 쿼리 &ndash;&gt;-->
-<!--    <select id="catalogProjectByConditions" parameterType="map" resultType="dto.Project">-->
-<!--        SELECT-->
-<!--        p.project_id,-->
-<!--        p.client_id,-->
-<!--        p.category,-->
-<!--        p.sub_category AS subCategory,-->
-<!--        p.advertisement_title,-->
-<!--        p.project_name,-->
-<!--        p.thumbnail,-->
-<!--        p.duration,-->
-<!--        p.settle_day,-->
-<!--        p.manager,-->
-<!--        u.profile_img,-->
-<!--        COALESCE(AVG(r.star), 0) AS avg_star-->
-<!--        FROM project p-->
-<!--        LEFT JOIN user u ON p.client_id = u.user_id-->
-<!--        LEFT JOIN review r ON p.client_id = r.r_user_id-->
-<!--        WHERE p.category = #{category}-->
-<!--        <if test="subCategory != null and subCategory != ''">-->
-<!--            AND p.sub_category = #{subCategory}-->
-<!--        </if>-->
-<!--        GROUP BY p.project_id-->
-<!--        ORDER BY p.created_date DESC-->
-<!--    </select>-->
-<!--</mapper>-->
-

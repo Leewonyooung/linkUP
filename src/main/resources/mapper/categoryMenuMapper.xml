@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.categoryMenuMapper">
-    <resultMap id="CategoryWithSubMap" type="dto.Category">
+    <resultMap id="CategoryWithSubMap" type="category">
         <id property="categoryId" column="category_id"/>
         <result property="categoryName" column="category_name"/>
-        <collection property="subCategories" ofType="dto.SubCategory">
+        <collection property="subCategories" ofType="com.example.linkup.dto.SubCategory">
             <id property="subCategoryId" column="sub_category_id"/>
             <result property="categoryId" column="s_category_id"/>
             <result property="subCategoryName" column="sub_category_name"/>

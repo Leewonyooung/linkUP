@@ -6,7 +6,7 @@
 <!--        column: DB에서 가져온 컬럼명-->
 <mapper namespace="mapper.projectmgt">
     <!--resultMap : ProjectMgtDTO + 내부 PayList 리스트 - DTO랑 DB컬럼 맵핑-->
-    <resultMap id="projectMgtMap" type="dto.ProjectMgt">
+    <resultMap id="projectMgtMap" type="projectMgt">
         <id property="projectId" column="project_id" /> <!-- 프로젝트 id -->
         <result property="title" column="advertisement_title"/> <!-- 공고 제목 -->
         <result property="category" column="sub_category_name"/> <!-- 카테고리 -->
@@ -22,7 +22,7 @@
         <result property="applyCount" column="apply_count"/> <!-- 지원자 수 -->
 
         <!-- 등급별 구인 정보 (초급/중급/고급) 리스트 => ProjectMgt DTO 내부에 ProjectPay 포함되어있음-->
-        <collection property="payList" ofType="dto.ProjectPay">
+        <collection property="payList" ofType="ProjectPay">
             <result property="level" column="Lv"/>  <!-- 초급/중급/고급 -->
             <result property="fee" column="project_fee"/> <!-- 레벨 별 1인 당 월급  -->
             <result property="count" column="recruit_count"/> <!-- 인원 수 -->
@@ -124,7 +124,7 @@
         ]]>
 </update>
 
-    <select id="selectProjectById" parameterType="int" resultType="dto.ProjectMgt">
+    <select id="selectProjectById" parameterType="int" resultType="projectMgt">
         SELECT
             project_id,
             advertisement_title,

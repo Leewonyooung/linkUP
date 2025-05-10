@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.candidatemgt">
 
-    <resultMap id="candidateMgtMap" type="dto.ClientCandidateMgt">
+    <resultMap id="candidateMgtMap" type="clientCandidateMgt">
         <id property="projectId" column="project_id" /> <!-- 프로젝트 id -->
         <result property="title" column="project_name"/> <!-- 공고 제목 -->
         <result property="projectDescription" column="project_description"/> <!-- 프로젝트 내용 -->
@@ -112,7 +112,7 @@
         WHERE project_id = #{projectId} AND freelancer_id = #{freelancerId}
     </update>
 
-    <insert id="insertContract" parameterType="dto.Contract">
+    <insert id="insertContract" parameterType="contract">
         INSERT INTO contract (
             id,
             apply_id,

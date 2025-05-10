@@ -1,4 +1,4 @@
-@import url('./common.css'); /* 공통 스타일 가져오기 */
+@import url('common.css'); /* 공통 스타일 가져오기 */
 
 /* 리뷰 관리 페이지 전용 스타일 */
 .review-stats {
