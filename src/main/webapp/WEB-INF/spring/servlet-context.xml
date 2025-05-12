@@ -22,8 +22,4 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-
-    <bean id="logBean" class="java.lang.String">
-        <constructor-arg value="✅ servlet-context 로드됨" />
-    </bean>
 </beans>
