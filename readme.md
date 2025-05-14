@@ -1,6 +1,6 @@
 
 # LinkUP - 구인구직 중개 플랫폼
-
+기존 레포지토리 : https://github.com/hayeonkimmie/linkUP
 ## 📌 프로젝트 소개
 
 > 구직자와 구인자 간 매칭을 돕는 **구인·구직 플랫폼**입니다.  
