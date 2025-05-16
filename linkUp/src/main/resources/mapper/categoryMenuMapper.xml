@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.categoryMenuMapper">
+    <resultMap id="CategoryWithSubMap" type="category">
+        <id property="categoryId" column="category_id"/>
+        <result property="categoryName" column="category_name"/>
+        <collection property="subCategories" ofType="subCategory">
+            <id property="subCategoryId" column="sub_category_id"/>
+            <result property="categoryId" column="s_category_id"/>
+            <result property="subCategoryName" column="sub_category_name"/>
+        </collection>
+    </resultMap>
+
+<!--    헤더 카테고리 부분을 맡고있음-->
+    <select id="selectAllWithSub" resultMap="CategoryWithSubMap">
+        SELECT
+            c.category_id,
+            c.category_name,
+            s.sub_category_id,
+            s.sub_category_name,
+            s.category_id AS s_category_id
+        FROM category c
+                 LEFT JOIN subCategory s ON c.category_id = s.category_id
+    </select>
+
+
+</mapper>

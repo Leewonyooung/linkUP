@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org/DTO Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.kosta.linkup.dto.ClientUserDetail" alias="adminuserdetail"/>
+        <typeAlias type="com.kosta.linkup.dto.AdminProjectDetail" alias="AdminProjectDetail"/>
+        <typeAlias type="com.kosta.linkup.dto.AdminSettleProject" alias="AdminSettleProject"/>
+        <typeAlias type="com.kosta.linkup.dto.ProjectParticipant" alias="ProjectParticipant"/>
+        <typeAlias type="com.kosta.linkup.dto.AdminProject" alias="AdminProject"/>
+        <typeAlias type="com.kosta.linkup.dto.User" alias="user"/>
+        <typeAlias type="com.kosta.linkup.dto.Project" alias="project"/>
+        <typeAlias type="com.kosta.linkup.dto.Apply" alias="apply"/>
+        <typeAlias type="com.kosta.linkup.dto.Category" alias="category"/>
+        <typeAlias type="com.kosta.linkup.dto.Career" alias="career"/>
+        <typeAlias type="com.kosta.linkup.dto.Client" alias="client"/>
+        <typeAlias type="com.kosta.linkup.dto.ClientProfile" alias="clientProfile" />
+        <typeAlias type="com.kosta.linkup.dto.ProjectMgt" alias="projectMgt" />
+        <typeAlias type="com.kosta.linkup.dto.ProjectPay" alias="projectPay" />
+        <typeAlias type="com.kosta.linkup.dto.ClientCandidateMgt" alias="clientCandidateMgt" />
+        <typeAlias type="com.kosta.linkup.dto.ClientApply" alias="clientapply" />
+        <typeAlias type="com.kosta.linkup.dto.FreelancerProject" alias="freelancerproject" />
+        <typeAlias type="com.kosta.linkup.dto.SettlementListForF" alias="slistforf" />
+        <typeAlias type="com.kosta.linkup.dto.ProjectDetail" alias="projectdetail" />
+        <typeAlias type="com.kosta.linkup.dto.AdminSettleTarget" alias="AdminSettleTarget" />
+        <typeAlias type="com.kosta.linkup.dto.AdminSettleHistory" alias="AdminSettleHistory" />
+        <typeAlias type="com.kosta.linkup.dto.ClientSettleTarget" alias="ClientSettleTarget" />
+        <typeAlias type="com.kosta.linkup.dto.SettlementDetailDTO" alias="SettlementDetailDTO" />
+        <typeAlias type="com.kosta.linkup.dto.ClientProjectSummary" alias="ClientProjectSummary" />
+        <typeAlias type="com.kosta.linkup.dto.SettledInfoDTO" alias="SettledInfoDTO" />
+        <typeAlias type="com.kosta.linkup.dto.AdminPrepareSettle" alias="AdminPrepareSettle" />
+        <typeAlias type="com.kosta.linkup.dto.AdminSettleHistorySummary" alias="AdminSettleHistorySummary" />
+        <typeAlias type="com.kosta.linkup.dto.AdminFreelancer" alias="AdminFreelancer" />
+        <typeAlias type="com.kosta.linkup.dto.ProjectPay" alias="ProjectPay" />
+        <typeAlias type="com.kosta.linkup.dto.Contract" alias="contract"/>
+        <typeAlias type="com.kosta.linkup.dto.Freelancer" alias="freelancer"/>
+        <typeAlias type="com.kosta.linkup.dto.ClientFavorites" alias="jjimfree"/>
+        <typeAlias type="com.kosta.linkup.dto.JjimProj" alias="jjimProj"/>
+        <typeAlias type="com.kosta.linkup.dto.Level" alias="lv"/>
+        <typeAlias type="com.kosta.linkup.dto.Pay" alias="pay"/>
+        <typeAlias type="com.kosta.linkup.dto.Portfolio" alias="portfolio"/>
+        <typeAlias type="com.kosta.linkup.dto.QnA" alias="qna"/>
+        <typeAlias type="com.kosta.linkup.dto.Settlelist" alias="settlelist"/>
+        <typeAlias type="com.kosta.linkup.dto.Settlement" alias="settlement"/>
+        <typeAlias type="com.kosta.linkup.dto.SubCategory" alias="subCategory"/>
+        <typeAlias type="com.kosta.linkup.dto.DashboardProject" alias="dproject"/>
+        <typeAlias type="com.kosta.linkup.dto.ClientUserInfo" alias="adminclient"/>
+        <typeAlias type="com.kosta.linkup.dto.Project" alias="project"/>
+        <typeAlias type="com.kosta.linkup.dto.Notice" alias="notice"/>
+        <typeAlias type="com.kosta.linkup.dto.News" alias="news"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mapper/categoryMenuMapper.xml"/>
+        <mapper resource="mapper/user.xml"/>
+        <mapper resource="mapper/client.xml"/>
+        <mapper resource="mapper/project.xml"/>
+        <mapper resource="mapper/category.xml"/>
+        <mapper resource="mapper/pay.xml"/>
+        <mapper resource="mapper/apply.xml"/>
+        <mapper resource="mapper/adminclient.xml"/>
+        <mapper resource="mapper/adminproject.xml"/>
+        <mapper resource="mapper/contract.xml"/>
+        <mapper resource="mapper/freelancer.xml"/>
+        <mapper resource="mapper/jjimfree.xml"/>
+        <mapper resource="mapper/jjimProj.xml"/>
+        <mapper resource="mapper/lv.xml"/>
+        <mapper resource="mapper/portfolio.xml"/>
+        <mapper resource="mapper/dashboardproject.xml"/>
+        <mapper resource="mapper/qna.xml"/>
+        <mapper resource="mapper/candidatemgt.xml"/>
+        <mapper resource="mapper/settlelist.xml"/>
+        <mapper resource="mapper/settlement.xml"/>
+        <mapper resource="mapper/subCategory.xml"/>
+        <mapper resource="mapper/notice.xml"/>
+        <mapper resource="mapper/news.xml"/>
+        <mapper resource="mapper/afreelancer.xml"/>
+        <mapper resource="mapper/projectmgt.xml"/>
+        <mapper resource="mapper/career.xml"/>
+    </mappers>
+</configuration>
