@@ -2,7 +2,71 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="mapper.settlement">
+<mapper namespace="com.kosta.linkup.dao.admin.SettlementDAO">
+
+    <select id="selectProjectsForSettlement" parameterType="map" resultType="AdminSettleProject">
+<![CDATA[
+        SELECT
+            p.project_id,
+            p.client_id,
+            c.company_name,
+            p.project_name,
+            CONCAT(
+                    DATE_FORMAT(MIN(ct.start_date), '%y.%m.%d'),
+                    ' ~ ',
+                    DATE_FORMAT(MAX(ct.end_date), '%y.%m.%d')
+            ) AS project_duration,
+            p.manager AS project_manager,
+            p.mphone AS manager_phone,
+            IFNULL(SUM(ct.total_pay - ct.fee), 0) AS total_amount,
+            IFNULL(SUM(ct.fee), 0) AS total_fee,
+            IFNULL(SUM(ct.total_pay), 0) AS total_settlement,
+            COUNT(DISTINCT ct.id) AS total_contracts,
+
+            COALESCE((
+                         SELECT COUNT(DISTINCT s.freelancer_id)
+                         FROM settlement s
+                                  JOIN settlelist sl ON s.slist_id = sl.slist_id
+                         WHERE sl.project_id = p.project_id
+                           AND DATE_FORMAT(sl.settle_date, '%Y-%m-%d') = #{targetSettleDay}
+                     ), 0) AS settled_count,
+
+
+            (
+                SELECT COUNT(DISTINCT a2.freelancer_id)
+                FROM apply a2
+                WHERE a2.project_id = p.project_id
+                  AND a2.is_approved = 1
+            ) AS participant,
+
+            sl.settle_day AS settle_day,
+            DAY(p.settle_day) AS settle_date,
+            MAX(ct.client_status) AS client_status,
+            MAX(ct.status) AS settle_status
+
+        FROM project p
+                 JOIN client c ON p.client_id = c.client_id
+                 JOIN contract ct ON ct.project_id = p.project_id
+                 LEFT JOIN (
+            SELECT project_id, MAX(settle_date) AS settle_day
+            FROM settlelist
+            GROUP BY project_id
+        ) sl ON sl.project_id = p.project_id
+
+        WHERE ct.status = '진행중'
+        GROUP BY
+            p.project_id,
+            p.client_id,
+            c.company_name,
+            p.project_name,
+            p.created_date,
+            p.settle_day,
+            p.manager,
+            p.mphone,
+            sl.settle_day
+        ORDER BY p.settle_day DESC
+        ]]>
+</select>
     <!-- 4. 정산 내역 테이블 등록 -->
     <insert id="insertSettlement" parameterType="settlement" useGeneratedKeys="true">
         INSERT INTO settlement (

@@ -170,3 +170,18 @@
     localStorage.setItem("sidebarIcon", icon);
   }
 </script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const title = localStorage.getItem("sidebarTitle");
+    const icon = localStorage.getItem("sidebarIcon");
+
+    if (title && icon) {
+      const titleEl = document.getElementById('sidebarTitleText');
+      const iconEl = document.getElementById('sidebarIcon');
+      if (titleEl && iconEl) {
+        titleEl.textContent = title;
+        iconEl.textContent = icon;
+      }
+    }
+  });
+</script>

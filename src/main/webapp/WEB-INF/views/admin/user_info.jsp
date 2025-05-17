@@ -123,6 +123,5 @@
     }
   });
 </script>
-<script src="../js/include_common.js"></script>
 </body>
 </html>

@@ -9,7 +9,6 @@
   <title>문의 상세 내역</title>
   <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
   <link rel="stylesheet" href="${contextPath}/css/admin/qna_detail.css" />
-  <script src="${contextPath}/js/include_common.js"></script>
   <script>
   const defaultOpenMenuId = "qaMenu";
   </script>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="mapper.afreelancer">
+<mapper namespace="com.kosta.linkup.dao.admin.FreelancerDAO">
     <select id="selectAllFreelancer" resultType="freelancer">
         SELECT f.freelancer_id,
                u.name,
@@ -13,11 +13,14 @@
         FROM freelancer f
                  INNER JOIN user u ON f.freelancer_id = u.user_id
     </select>
-    
+
     <select id="searchFreelancersByKeyword" resultType="freelancer" parameterType="String">
-        SELECT *  FROM freelancer f
-        JOIN user u ON f.freelancer_id = u.user_id
-        WHERE u.name LIKE #{keyword} OR freelancer_id LIKE #{keyword} OR email LIKE #{keyword}
+        SELECT *
+        FROM freelancer f
+                 JOIN user u ON f.freelancer_id = u.user_id
+        WHERE u.name LIKE CONCAT('%', #{keyword}, '%')
+           OR freelancer_id LIKE CONCAT('%', #{keyword}, '%')
+           OR email LIKE CONCAT('%', #{keyword}, '%')
     </select>
 
     <select id="selectFreelancerById" resultType="AdminFreelancer" parameterType="String">

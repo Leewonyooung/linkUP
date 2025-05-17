@@ -38,7 +38,8 @@ public class UserListController {
     ) {
         List<Freelancer> freelancerList = new ArrayList<>();
         List<ClientUserInfo> clientList = new ArrayList<>();
-
+        System.out.println(keyword);
+        System.out.println(userType);
         try {
             boolean hasKeyword = keyword != null && !keyword.trim().isEmpty();
 
@@ -55,7 +56,8 @@ public class UserListController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("freelancerList : " + freelancerList);
+        System.out.println("clientList : " + clientList);
         model.addAttribute("freelancerList", freelancerList);
         model.addAttribute("clientList", clientList);
         model.addAttribute("paramKeyword", keyword);

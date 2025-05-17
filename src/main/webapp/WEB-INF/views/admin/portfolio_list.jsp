@@ -16,8 +16,8 @@
     <meta charset="UTF-8">
     <title>Link up Profile List</title>
     <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css" />
-    <link rel="stylesheet" href="<c:url value='/css/admin/admin_portfolio_list.css'/>">
-    <link rel="stylesheet" href="<c:url value='/css/freelancer/freelancer_main_portfolio.css'/>">
+    <link rel="stylesheet" href="<c:url value='${contextPath}/css/admin/admin_portfolio_list.css'/>">
+    <link rel="stylesheet" href="<c:url value='${contextPath}/css/freelancer/freelancer_main_portfolio.css'/>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">

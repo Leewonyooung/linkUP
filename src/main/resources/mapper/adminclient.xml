@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="mapper.aclient">
+<mapper namespace="com.kosta.linkup.dao.admin.ClientDAO">
 
     <select id="selectAllClients" resultType="adminclient">
         SELECT
@@ -48,7 +48,9 @@
             '구인자' AS type
         FROM client c
                  JOIN user u ON c.client_id = u.user_id
-        WHERE (c.company_name LIKE #{keyword} OR u.user_id LIKE #{keyword} OR u.email LIKE #{keyword} )
+        WHERE c.company_name LIKE CONCAT('%', #{keyword}, '%')
+           OR u.user_id LIKE CONCAT('%', #{keyword}, '%')
+           OR u.email LIKE CONCAT('%', #{keyword}, '%')
     </select>
 
 

@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header>
+<header>`
   <div class="header-left">
     <a href="<c:url value='/admin/dashboard'/>" class="logo" style="font-size:24px; font-weight:bold;" onclick="setSidebar('대시 보드', '📊')">
       <h3>Link Up</h3>

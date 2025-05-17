@@ -197,6 +197,5 @@
     });
 </script>
 
-<script src="${contextPath}/js/include_common.js"></script>
 </body>
 </html>

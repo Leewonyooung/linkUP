@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
   <link rel="stylesheet" href="${contextPath}/css/admin/admin_project_list.css">
   <link rel="stylesheet" href="${contextPath}/css/table_common.css">
+
   <style>
     table th:nth-child(3),
     table td:nth-child(3) {
-      width: 90px !important;
+      width: 90px !imporstant;
       white-space: nowrap !important;
       overflow: hidden !important;
       text-overflow: ellipsis !important;
@@ -157,6 +158,5 @@
   </div>
 </div>
 
-<script src="${contextPath}/js/include_common.js"></script>
 </body>
 </html>

@@ -14,7 +14,6 @@
   <script>
     const defaultOpenMenuId = "projectMenu";
   </script>
-  <script src="${contextPath}/js/include_common.js"></script>
 </head>
 <body>
 <jsp:include page="admin_header.jsp" />

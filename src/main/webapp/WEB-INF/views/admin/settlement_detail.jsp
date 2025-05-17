@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
   <link rel="stylesheet" href="${contextPath}/css/admin/settlement_detail.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="${contextPath}/js/include_common.js"></script>
   <script src="${contextPath}/js/settlement_modal.js"></script>
   <script>
     const defaultOpenMenuId = "projectMenu";

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href=".${contextPath}/css/admin/settlement_info_freelancer.css" />
     <link rel="stylesheet" href="${contextPath}/css/admin/admin_header.css">
     <link rel="stylesheet" href="${contextPath}/css/admin/settlement_detail.css">
-    <script src="../js/include_common.js"></script>
+
 </head>
 
 <body>
@@ -67,7 +67,6 @@
         </div>
     </div>
 
-    <script src="../js/include_common.js"></script>
 </body>
 
 </html>

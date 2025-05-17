@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.dproject">
+
+<mapper namespace="com.kosta.linkup.dao.admin.DashboardProjectDAO">
+
+    <select id="selectProjectsForDashboard" resultType="AdminProject">
+    <![CDATA[
+        SELECT
+            ct.id as contract_id,
+            p.project_id,
+            p.client_id,
+            c.company_name,
+            p.project_name,
+            CONCAT(
+                    DATE_FORMAT(MIN(ct.start_date), '%y.%m.%d'),
+                    ' ~ ',
+                    DATE_FORMAT(MAX(ct.end_date), '%y.%m.%d')
+            ) AS project_duration,
+            p.manager as project_manager,
+            p.mphone as manager_phone,
+            IFNULL(SUM(ct.total_pay - ct.fee), 0) AS total_amount,
+            IFNULL(SUM(ct.fee), 0) AS total_fee,
+            IFNULL(SUM(ct.total_pay), 0) AS total_settlement,
+            COUNT(DISTINCT a.freelancer_id) AS participant,
+            DAY(p.settle_day) AS settle_date,
+            ct.client_status AS client_status,
+            MAX(ct.status) AS settle_status
+
+        FROM project p
+                 LEFT JOIN client c ON p.client_id = c.client_id
+                 LEFT JOIN apply a ON a.project_id = p.project_id AND a.is_approved = TRUE
+                 LEFT JOIN contract ct ON ct.project_id = p.project_id
+        WHERE p.settle_day <= CURDATE()
+        GROUP BY
+            p.project_id,
+            p.client_id,
+            c.company_name,
+            p.project_name,
+            p.created_date,
+            p.settle_day,
+            p.manager,
+            p.mphone
+        HAVING settle_status IN ('정산완료', '진행중')
+        ORDER BY p.settle_day DESC
+        ]]>
+    </select>
+
     <select id="selectAllOngoingProjects" resultType="dproject">
         SELECT
             p.project_id AS projectId,

@@ -1,5 +1,6 @@
 package com.kosta.linkup.dao.admin;
 
+import com.kosta.linkup.dto.AdminProject;
 import com.kosta.linkup.dto.DashboardProject;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -21,4 +22,6 @@ public interface DashboardProjectDAO {
      * @return Project 대시보드에 보여줄 프로젝트 정보
      */
     public DashboardProject getDashboardProject(Integer projectId);
+
+    public List<AdminProject> selectProjectsForDashboard() throws Exception;
 }

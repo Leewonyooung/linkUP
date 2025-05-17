@@ -21,7 +21,6 @@
     <script>
         const defaultOpenMenuId = "projectMenu";
     </script>
-    <script src="${contextPath}/js/include_common.js"></script>
 </head>
 <body>
 

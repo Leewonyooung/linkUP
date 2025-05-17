@@ -1,24 +1,21 @@
 package com.kosta.linkup.service.admin;
 
-import com.kosta.linkup.dao.admin.SettlementDAO;
+import com.kosta.linkup.dao.admin.DashboardProjectDAO;
 import com.kosta.linkup.dto.AdminProject;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DashboardService implements IDashboardService {
 
-    private final SettlementDAO settlementDAO;
+    private final DashboardProjectDAO dashboardProjectDAO;
 
-    @Autowired
-    public DashboardService(SettlementDAO settlementDAO) {
-        this.settlementDAO = settlementDAO;
-    }
 
     @Override
     public List<AdminProject> getDashboardProjectList() throws Exception {
-        return settlementDAO.selectProjectsForSettlementList();
+        return dashboardProjectDAO.selectProjectsForDashboard();
     }
 }

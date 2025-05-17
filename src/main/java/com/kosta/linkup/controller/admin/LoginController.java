@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
 public class LoginController {
 
@@ -20,7 +18,7 @@ public class LoginController {
     }
 
     @PostMapping("/admin/login")
-    public String processLogin(HttpServletRequest request) {
+    public String processLogin() {
         // 로그인 로직은 추후 구현 예정
         return "redirect:dashboard";
     }

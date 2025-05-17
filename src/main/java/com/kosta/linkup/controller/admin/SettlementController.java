@@ -61,7 +61,7 @@ public class SettlementController {
             HashMap<Integer, AdminSettleProject> projectList =
                     (HashMap<Integer, AdminSettleProject>) request.getSession().getAttribute("projectList");
             if (projectList == null || !projectList.containsKey(projectId)) {
-                projectList = settlementDAO.selectProjectsForSettlement();
+//                projectList = settlementDAO.selectProjectsForSettlement();
             }
             AdminSettleProject selected = projectList.get(projectId);
 

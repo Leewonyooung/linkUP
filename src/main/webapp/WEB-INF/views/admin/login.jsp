@@ -74,7 +74,7 @@
 
 <div class="login-container">
   <div class="logo">관리자 페이지</div>
-  <form id="loginForm" action="<c:url value="admin/login"/>" method="post">
+  <form id="loginForm" action="<c:url value="/admin/login"/>" method="post">
     <input type="text" name="adminId" placeholder="아이디" required>
     <input type="password" name="adminPw" placeholder="비밀번호" required>
     <button type="submit">로그인</button>

@@ -10,317 +10,178 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f91bcd2-cea4-4bac-8da3-9553001926ad" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/LinkUpApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/ServletInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/AdminPortfolioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/ClientController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/DashBoardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/FreeLancerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/ProjectController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/QnaAnswerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/QnaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/QnaDetailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/SettleHistoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/SettlementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/SettlementDetailModalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/SettlementMonthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/UpdateClientStatusController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/controller/admin/UserListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/ClientDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/ContractDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/DashboardProjectDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/FreelancerDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/ProjectDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/QnaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/admin/SettlementDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/freelancer/CareerDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dao/freelancer/PortfolioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Academic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminFreelancer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminPrepareSettle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminProject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminProjectDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminSettleHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminSettleHistorySummary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminSettleProject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/AdminSettleTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Amount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Apply.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Career.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Certification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientAccountInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientApply.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientCandidateMgt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientFavorites.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientProjectSummary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientSettleTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientUserDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ClientUserInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Contract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/DashboardProject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Education.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Experience.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Favorite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/FileAttachment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Freelancer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/FreelancerProject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/JjimProj.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Level.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/License.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/News.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Notice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/NotificationSetting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Pay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/PayLevelDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Payment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Portfolio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/PrepareSettleJson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ProjectDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ProjectMgt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ProjectParticipant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ProjectPay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/ProjectTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/QnA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/RecruiterProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/SettledInfoDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Settlelist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Settlement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/SettlementDetailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/SettlementListForF.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/Skill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/SubCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/dto/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/ClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/ContractService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/DashboardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/FreelancerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IContractService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IDashboardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IFreelancerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IProjectService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/IQnaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/ISettlementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/ProjectService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/QnaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/admin/SettlementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/freelancer/IPortfolioService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/service/freelancer/PortfolioService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/util/MybatisSqlSessionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/util/PageInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/java/com/kosta/linkup/util/SingleTonSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/adminclient.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/adminproject.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/afreelancer.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/ammount.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/apply.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/candidatemgt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/career.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/category.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/categoryMenuMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/client.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/clientpayment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/contract.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/dashboardproject.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/freelancer.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/jjimProj.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/jjimfree.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/lv.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/news.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/notice.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/pay.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/portfolio.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/projectmgt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/qna.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/settlelist.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/settlement.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/subCategory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mapper/user.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/resources/mybatis-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/admin_header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/client_detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/client_project_list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/dashboard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/freelancer_detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/menutap.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/portfolio_list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/project_detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/project_list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/qna_detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/qna_manage.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/settle_history.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/settlement.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/settlement_detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/settlement_info.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/settlement_info_freelancer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/WEB-INF/views/admin/user_info.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/admin_dashboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/admin_header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/admin_portfolio_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/admin_project_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/company_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/company_project_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/project_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/qna_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/qna_manage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/settlement.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/settlement_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/settlement_info.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/settlement_info_freelancer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/user_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/admin/user_info.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/alarm_settings.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/candidateMgt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/clientProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/client_favorites.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/editProject.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/headerSt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/inquiryHistory.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/monthlySettlement.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/recruitmentList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/reviewMgt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/sideBar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/client/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/common/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/common/headerLoginSt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/common/headerSt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_main_info_edit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_main_portfolio.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_main_portfolio_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_main_portfolio_write_and_modify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_apply_proj_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_get_my_proj.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_like.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_page_expert_info_edit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_page_info_edit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_page_project_review.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/freelancer/freelancer_my_page_qna_log.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/CompanySearch.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/NewDT.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/News.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/Q&amp;A.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/catalog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/createAcc.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/createAccChoose.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/createAccJobseeker.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/createAccRecruiter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/gogakCenter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/inquiry_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/mainLoginVersion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/makeProject.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/noticeList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/noticeListDT.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/payment.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/project_detail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/project_list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/home/sideBar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/css/table_common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/CICD 자동화와 로그 모니터링 도입을 통한 운영 효율화 사례.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/NestJS와 TypeScript를 활용한 모듈형 API 서버 설계 및 구현.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/ReactNativeBlobUtilTmp_0g1olfusl5yuwvnh2akdfpb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/ReactNativeBlobUtilTmp_yt6l0fblm0nz7d3a6ady9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/ReactNativeBlobUtilTmp_yzho8qdel6okl1vs0b5ei.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/Spring Boot 기반 전자상거래 백엔드 시스템 고도화 프로젝트.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/ai.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/basic_profile_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/basic_profile_img2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/data.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/default_upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/developer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/kakao_login_medium_narrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/maintenance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/no_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/program.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/test01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/test02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/test03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/test04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/trend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/webDesign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/대용량 트래픽 대응을 위한 API 서버 최적화.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/대지 1-100.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/데이터솔루션 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/디자인에이전시 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/디지털솔루션 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/링크업 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/모바일앱스 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/블록체인랩스 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/빅데이터분석 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/소프트웨어팩토리 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/쇼핑몰 반응형 웹 고도화.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/스마트테크 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/알람벨.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/웹제작.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/유지보수.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/인공지능연구소 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/클라우드서비스 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/테크놀러지그룹 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/테크스타트 회사 로고.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/img/회사사진.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/admin_settlement_info.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/alarm_settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/candidateMgt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/catalog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/catalogWebProduction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_apply_proj_list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_get_my_proj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_info_edit_basic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_info_edit_expert.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_like_proj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_portfolio.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_portfolio_modify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_portfolio_write.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_project_review.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/freelancer_my_page_project_review_write.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/headerLogin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/include_common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/monthlySettlement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/recruitmentList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/settlement_modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/sideBar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/toggleFavorite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/js/user_info.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/basic_profile_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/no_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/profile/basic_no_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/profile/profile1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/profile/profile2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/main/webapp/upload/profile/profile3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkUp/src/test/java/com/kosta/linkup/LinkUpApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/SettlementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/SettlementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/UserListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/controller/admin/UserListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/dao/admin/DashboardProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/dao/admin/DashboardProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/dao/admin/SettlementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/dao/admin/SettlementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/service/admin/DashboardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/service/admin/DashboardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/service/admin/SettlementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kosta/linkup/service/admin/SettlementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/adminclient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/adminclient.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/adminproject.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/adminproject.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/afreelancer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/afreelancer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/dashboardproject.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/dashboardproject.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/settlement.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/settlement.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/admin_header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/admin_header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/client_project_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/client_project_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/menutap.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/menutap.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/portfolio_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/portfolio_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/project_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/project_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/project_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/project_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qna_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qna_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qna_manage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qna_manage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settle_history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settle_history.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_info_freelancer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/settlement_info_freelancer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user_info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/admin_dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/admin_header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_portfolio_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/admin_portfolio_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/admin_project_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/admin_project_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/company_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/company_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/company_project_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/company_project_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/project_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/project_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/qna_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/qna_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/qna_manage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/qna_manage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/settlement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/settlement.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/settlement_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/settlement_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/settlement_info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/settlement_info.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/settlement_info_freelancer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/settlement_info_freelancer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/user_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/user_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/user_info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/user_info.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/alarm_settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/alarm_settings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/candidateMgt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/candidateMgt.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/clientProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/clientProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/client_favorites.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/client_favorites.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/editProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/editProject.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/headerSt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/headerSt.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/inquiryHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/inquiryHistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/monthlySettlement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/monthlySettlement.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/recruitmentList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/recruitmentList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/reviewMgt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/reviewMgt.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/sideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/sideBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/client/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/client/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/common/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common/headerLoginSt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/common/headerLoginSt.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common/headerSt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/common/headerSt.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_main_info_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_main_info_edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_main_portfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_main_portfolio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_main_portfolio_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_main_portfolio_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_main_portfolio_write_and_modify.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_main_portfolio_write_and_modify.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_apply_proj_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_apply_proj_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_get_my_proj.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_get_my_proj.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_like.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_like.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_page_expert_info_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_page_expert_info_edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_page_info_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_page_info_edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_page_project_review.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_page_project_review.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/freelancer/freelancer_my_page_qna_log.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/freelancer/freelancer_my_page_qna_log.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/CompanySearch.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/CompanySearch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/NewDT.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/NewDT.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/News.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/Q&amp;A.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/Q&amp;A.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/catalog.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/catalog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/createAcc.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/createAcc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/createAccChoose.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/createAccChoose.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/createAccJobseeker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/createAccJobseeker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/createAccRecruiter.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/createAccRecruiter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/gogakCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/gogakCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/inquiry_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/inquiry_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/mainLoginVersion.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/mainLoginVersion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/makeProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/makeProject.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/noticeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/noticeList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/noticeListDT.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/noticeListDT.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/payment.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/payment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/project_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/project_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/project_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/project_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home/sideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home/sideBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/table_common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/table_common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/CICD 자동화와 로그 모니터링 도입을 통한 운영 효율화 사례.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/CICD 자동화와 로그 모니터링 도입을 통한 운영 효율화 사례.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/NestJS와 TypeScript를 활용한 모듈형 API 서버 설계 및 구현.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/NestJS와 TypeScript를 활용한 모듈형 API 서버 설계 및 구현.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/ReactNativeBlobUtilTmp_0g1olfusl5yuwvnh2akdfpb.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/ReactNativeBlobUtilTmp_0g1olfusl5yuwvnh2akdfpb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/ReactNativeBlobUtilTmp_yt6l0fblm0nz7d3a6ady9.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/ReactNativeBlobUtilTmp_yt6l0fblm0nz7d3a6ady9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/ReactNativeBlobUtilTmp_yzho8qdel6okl1vs0b5ei.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/ReactNativeBlobUtilTmp_yzho8qdel6okl1vs0b5ei.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/Spring Boot 기반 전자상거래 백엔드 시스템 고도화 프로젝트.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/Spring Boot 기반 전자상거래 백엔드 시스템 고도화 프로젝트.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/ai.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/ai.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/basic_profile_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/basic_profile_img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/basic_profile_img2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/basic_profile_img2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/data.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/data.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/default_upload.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/default_upload.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/developer.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/developer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/kakao_login_medium_narrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/kakao_login_medium_narrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/maintenance.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/maintenance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/mobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/mobile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/no_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/no_img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/program.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/program.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/test01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/test01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/test02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/test02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/test03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/test03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/test04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/test04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/upload.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/upload.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/webDesign.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/webDesign.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/대용량 트래픽 대응을 위한 API 서버 최적화.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/대용량 트래픽 대응을 위한 API 서버 최적화.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/대지 1-100.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/대지 1-100.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/데이터솔루션 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/데이터솔루션 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/디자인에이전시 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/디자인에이전시 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/디지털솔루션 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/디지털솔루션 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/링크업 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/링크업 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/모바일앱스 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/모바일앱스 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/블록체인랩스 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/블록체인랩스 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/빅데이터분석 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/빅데이터분석 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/소프트웨어팩토리 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/소프트웨어팩토리 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/쇼핑몰 반응형 웹 고도화.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/쇼핑몰 반응형 웹 고도화.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/스마트테크 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/스마트테크 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/알람벨.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/알람벨.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/웹제작.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/웹제작.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/유지보수.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/유지보수.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/인공지능연구소 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/인공지능연구소 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/클라우드서비스 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/클라우드서비스 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/테크놀러지그룹 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/테크놀러지그룹 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/테크스타트 회사 로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/테크스타트 회사 로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/회사사진.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/회사사진.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/admin_settlement_info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/admin_settlement_info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/alarm_settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/alarm_settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/candidateMgt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/candidateMgt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/catalog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/catalogWebProduction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/catalogWebProduction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_apply_proj_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_apply_proj_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_get_my_proj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_get_my_proj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_info_edit_basic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_info_edit_basic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_info_edit_expert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_info_edit_expert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_like_proj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_like_proj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_portfolio_modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_portfolio_modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_portfolio_write.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_portfolio_write.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_project_review.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_project_review.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/freelancer_my_page_project_review_write.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/freelancer_my_page_project_review_write.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/headerLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/headerLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/include_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/include_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/monthlySettlement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/monthlySettlement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/recruitmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/recruitmentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/settlement_modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/settlement_modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/sideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/sideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/toggleFavorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/toggleFavorite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/user_info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/user_info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/basic_profile_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/basic_profile_img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/no_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/no_img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/profile/basic_no_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/profile/basic_no_img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/profile/profile1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/profile/profile1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/profile/profile2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/profile/profile2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/upload/profile/profile3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/upload/profile/profile3.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,8 +232,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Leewonyooung/linkUp.git&quot;,
-    &quot;accountId&quot;: &quot;0cc6485c-6b05-4395-927b-240d792190fb&quot;
+    &quot;url&quot;: &quot;https://github.com/Leewonyooung/linkUp&quot;,
+    &quot;accountId&quot;: &quot;ca9eb27e-c9c0-4098-a919-cb8f0571a3c0&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -401,10 +262,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
     "Gradle.linkUp 빌드.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "데이터베이스 연결 매개변수가 발견됨",
     "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -417,20 +282,27 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "spring-boot-mybatis",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/mac/Documents/Git/linkUp",
+    "last_opened_file_path": "D:/Git/linkUp/src/main/resources/static",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "모듈",
+    "project.structure.last.edited": "라이브러리",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.29310346",
+    "project.structure.side.proportion": "0.37931034",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Git\linkUp\src\main\resources\static" />
       <recent name="$PROJECT_DIR$/linkUp/src/main" />
       <recent name="$PROJECT_DIR$/linkUp/src/main/resources" />
     </key>
@@ -577,6 +449,40 @@
         </option>
       </method>
     </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="linkup-spring" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="linkup-spring" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Spring Boot.LinkUpApplication" />
       <item itemvalue="Tomcat 서버.Tomcat 9.0.102" />
@@ -585,8 +491,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.109" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.109" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -601,6 +507,8 @@
       <workItem from="1747013544142" duration="21000" />
       <workItem from="1747385353500" duration="3721000" />
       <workItem from="1747389132342" duration="1686000" />
+      <workItem from="1747460983709" duration="318000" />
+      <workItem from="1747461323357" duration="10349000" />
     </task>
     <servers />
   </component>

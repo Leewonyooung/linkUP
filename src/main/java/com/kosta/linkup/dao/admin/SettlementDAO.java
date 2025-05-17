@@ -13,9 +13,9 @@ import java.util.Map;
 @Repository
 @Mapper
 public interface SettlementDAO {
-    HashMap<Integer, AdminSettleProject> selectProjectsForSettlementWithParams(Map<String, Object> params) throws SQLException;
+    List<AdminSettleProject> selectProjectsForSettlement()throws Exception;
 
-    HashMap<Integer, AdminSettleProject> selectProjectsForSettlement() throws SQLException;
+    List<AdminSettleProject> selectProjectsForSettlement(Map<String, Object> params)throws Exception;
 
     List<AdminProject> selectProjectsForSettlementList() throws SQLException;
 
@@ -69,5 +69,5 @@ public interface SettlementDAO {
     ClientProjectSummary selectSettlementHistoryDetailByClientId(Integer projectId) throws Exception;
     public Integer selectFirstSlistIdByProjectId(Integer projectId) throws Exception;
 
-    HashMap<Integer, AdminSettleProject> selectProjectsForSettlementWithParams(HashMap<String, Object> params);
+    HashMap<Integer, AdminSettleProject> selectProjectsForSettlementWithParams(Map<String, Object> params);
 }

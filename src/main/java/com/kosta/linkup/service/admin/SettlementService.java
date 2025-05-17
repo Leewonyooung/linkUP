@@ -119,7 +119,6 @@ public class SettlementService implements ISettlementService {
         return settlement;
     }
 
-
     @Override
     public HashMap<Integer, AdminSettleProject> filterProjectsWithUnsettled() throws Exception {
         LocalDate today = LocalDate.now();
@@ -127,13 +126,26 @@ public class SettlementService implements ISettlementService {
         LocalDate targetSettleDay = LocalDate.of(today.getYear(), today.getMonth(), 6); // 정산일을 6일로 고정하거나 동적으로 설정 가능
         params.put("targetSettleDay", targetSettleDay);
         System.out.println("params = " + params);
-        HashMap<Integer, AdminSettleProject> fullList = settlementDAO.selectProjectsForSettlementWithParams(params);
-        HashMap<Integer, AdminSettleProject> filtered = new HashMap<>();
-        if (fullList==null){
-            fullList = settlementDAO.selectProjectsForSettlement();
+//        List<AdminProject> fullList = settlementDAO.selectProjectsForSettlementList();
+        List<AdminSettleProject> fullList = settlementDAO.selectProjectsForSettlement(params);
+        HashMap<Integer, AdminSettleProject> map = new HashMap<>();
+        for (AdminSettleProject p : fullList) {
+            map.put(p.getProjectId(), p);
+            System.out.println(p);
         }
-        for (Integer key : fullList.keySet()) {
-            AdminSettleProject p = fullList.get(key);
+        HashMap<Integer, AdminSettleProject> filtered = new HashMap<>();
+        if (fullList.isEmpty()) {
+            System.out.println("WithParams로는 조회 실패");
+            fullList = settlementDAO.selectProjectsForSettlement();
+            HashMap<Integer, AdminSettleProject> newmap = new HashMap<>();
+            for (AdminSettleProject p : fullList) {
+                map.put(p.getProjectId(), p);
+                System.out.println(p);
+            }
+            return newmap;
+        }
+        for (Integer key : map.keySet()) {
+            AdminSettleProject p = map.get(key);
 
             System.out.println("\n🎯 대상 프로젝트: " + p.getProjectName());
 
@@ -173,8 +185,6 @@ public class SettlementService implements ISettlementService {
 
         return filtered;
     }
-
-
 
     @Override
     public List<AdminSettleHistory> getHistoryList(String keyword, String startDate, String endDate, int offset, int limit) throws Exception {
