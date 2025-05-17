@@ -17,12 +17,9 @@
         <module name="linkUp.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="linkUp" options="-parameters" />
-      <module name="linkUp.main" options="-parameters" />
-      <module name="linkUp.test" options="-parameters" />
-    </option>
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
   </component>
 </project>

@@ -55,6 +55,6 @@ public class DashBoardController {
         model.addAttribute("totalPaymentFee", totalPaymentFee);
         model.addAttribute("ongoingProjects", ongoingProjects);
 
-        return "admin/dashboard"; // => /WEB-INF/views/admin/dashboard.jsp
+        return "/admin/dashboard"; // => /WEB-INF/views/admin/dashboard.jsp
     }
 }
