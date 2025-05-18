@@ -1,6 +1,13 @@
 
 # LinkUP - 구인구직 중개 플랫폼
 기존 레포지토리 : https://github.com/hayeonkimmie/linkUP
+
+## 프로젝트 리팩토링
+- JAVA 웹 개발의 과정을 이해하기 위해 Servlet&JSP 기반으로 첫 프로젝트 구성 및 이후 리팩토링
+- Branch별 구성
+  - `main` : JSP/Servlet 기반의 초기 프로젝트
+  - `spring-framework-component` : Spring Framework 기반으로 리팩토링한 프로젝트
+  - `spring-boot-mybatis` : Spring Boot + MyBatis 기반으로 리팩토링한 프로젝트
 ## 📌 프로젝트 소개
 
 > 구직자와 구인자 간 매칭을 돕는 **구인·구직 플랫폼**입니다.  
